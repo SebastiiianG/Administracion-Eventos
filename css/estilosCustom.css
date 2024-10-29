@@ -33,7 +33,7 @@ html, body {
     height: 100%;
     color: var(--text-color);
     background-color: var(--light-color);
-    font-family: 'Open Sans', sans-serif;
+    font-family: Montserrat;
 }
 
 h1, h2, h3 {
@@ -250,14 +250,19 @@ figcaption{
 header {
     padding: 10px 30px 10px;
     text-align: left;
-    background-color: var(--secondary-color);
+    /* Fondo de imagen con gradiente de color */
+    background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7) 70%), 
+    url('../resources/UAEH.jpg') no-repeat 0px -300px;
+    background-size: cover;
     color: var(--light-color);
 }
 
 header h1 {
     position: relative;
     text-align: center;
-    padding-bottom: 10px;
+    padding: 50px 50px;
+    font: Montserrat;
 }
 
 header h1::after {
@@ -273,8 +278,8 @@ header h1::after {
 }
 
 header p {
-    padding: 15px 30px;
-    text-align: justify;
+    padding: 30px;
+    text-align: center;
 }
 
 /* Estilos correspondientes a la barra de navegación */
