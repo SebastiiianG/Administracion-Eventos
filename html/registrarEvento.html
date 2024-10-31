@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../css/estilosCustom.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            
+        </header>
+
+        <nav>
+
+        </nav>
+        <div id="formulario">
+            <!-- Formulario para Evento -->
+        <form action="insert_evento.php" method="post" enctype="multipart/form-data">
+            <label for="nombre_evento">Nombre del Evento:</label>
+            <input type="text" name="nombre_evento" required>
+            
+            <label for="descripcion">Descripción:</label>
+            <input type="text" name="descripcion" required>
+            
+            <label for="fecha_evento">Fecha del Evento:</label>
+            <input type="date" name="fecha_evento" required>
+            
+            <label for="horario_evento">Horario del Evento:</label>
+            <input type="time" name="horario_evento" required>
+            
+            <label for="img">Imagen del Evento:</label>
+            <input type="file" name="img" required>
+            
+            <label for="id_auditorio">Auditorio:</label>
+            <select name="id_auditorio" required>
+                <!-- <?php
+                include 'conexion.php';
+                $result = $conn->query("SELECT id_auditorio, nombre_auditorio FROM auditorio");
+                while ($row = $result->fetch_assoc()) {
+                    echo "<option value='{$row['id_auditorio']}'>{$row['nombre_auditorio']}</option>";
+                }
+                ?> -->
+            </select>
+            
+            <button type="submit">Agregar Evento</button>
+        </form>
+
+        </div>
+    </body>
+</html>

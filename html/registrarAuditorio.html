@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de auditorio</title>
+</head>
+<body>
+    <header>
+        
+    </header>
+    <nav>
+        
+    </nav>
+    <div id="formulario">
+        <!-- Formulario para Auditorio -->
+    <form action="insert_auditorio.php" method="post"><!-- El nombre del php es tentativo -->
+        <label for="nombre_auditorio">Nombre del Auditorio:</label>
+        <input type="text" name="nombre_auditorio" required>
+        
+        <label for="capacidad">Capacidad:</label>
+        <input type="number" name="capacidad" required>
+        
+        <label for="ubicacion">Ubicación:</label>
+        <input type="text" name="ubicacion" required>
+        
+        <button type="submit">Agregar Auditorio</button>
+    </form>
+    </div>
+</body>
+</html>
