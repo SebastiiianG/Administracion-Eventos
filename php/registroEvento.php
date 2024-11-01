@@ -1,7 +1,14 @@
 <?php
+session_start();
+/*Las sesiones son una forma sencilla de 
+almacenar datos para usuarios de manera 
+individual usando un ID de sesión único. 
+- Al usar sesiones, el mensaje se almacena de manera segura en el servidor 
+y no depende de la URL o de los datos
+- Permiten separar la lógica de registro y validación*/ 
 include "connection.php";
 
-if (!empty($_POST["btnregistrar"])) {
+if (!empty($_POST["btnRegistrar"])) {
     // Verificación de campos en $_POST y del archivo en $_FILES
     if (!empty($_POST["nombre_evento"]) && !empty($_POST["descripcion"]) &&
         !empty($_POST["fecha_evento"]) && !empty($_POST["horario_evento"]) &&
@@ -17,27 +24,41 @@ if (!empty($_POST["btnregistrar"])) {
         $horario_evento = $_POST["horario_evento"];
         $id_auditorio = $_POST["id_auditorio"];
         
-        // Manejo de la imagen
-        $nombreImagen = $_FILES["img"]["name"]; // Nombre original del archivo
-        $rutaTemporal = $_FILES["img"]["tmp_name"]; // Ruta temporal del archivo
-        $rutaDestino = "imagenesEvento/" . $nombreImagen; // Ruta donde se guardará la imagen
-        
-        // Mover la imagen a la carpeta "imagenesEvento"
-        if (move_uploaded_file($rutaTemporal, $rutaDestino)) {
-            // Insertar en la base de datos solo la ruta relativa de la imagen
-            $sql = "INSERT INTO evento (nombre_evento, descripcion, fecha_evento, horario_evento, img, id_auditorio) 
-                    VALUES ('$nombre_evento', '$descripcion', '$fecha_evento', '$horario_evento', '$rutaDestino', '$id_auditorio')";
+        // Validación de conflicto en fecha, hora y auditorio
+        $conflicto_sql = "SELECT * FROM evento WHERE fecha_evento = '$fecha_evento' 
+                          AND horario_evento = '$horario_evento' AND id_auditorio = '$id_auditorio'";
+        $conflicto_query = mysqli_query($con, $conflicto_sql);
 
-            if (mysqli_query($con, $sql)) {
-                echo '<div class="alert alert-success">Evento registrado correctamente</div>';
-            } else {
-                echo '<div class="alert alert-danger">Error al registrar evento</div>';
-            }
+        if (mysqli_num_rows($conflicto_query) > 0) {
+            $_SESSION['mensaje'] = '<div class="alert alert-warning">Ya existe un evento programado en este auditorio, fecha y hora.</div>';
         } else {
-            echo '<div class="alert alert-danger">Error al mover la imagen a la carpeta de destino</div>';
+            // Manejo de la imagen
+            $nombreOriginal = basename($_FILES["img"]["name"]); // Nombre original del archivo
+            $nombreImagen = uniqid() . "_" . $nombreOriginal; // Nombre único para evitar sobrescritura
+            $rutaTemporal = $_FILES["img"]["tmp_name"]; // Ruta temporal del archivo
+            $rutaDestino = __DIR__ . "/imagenesEvento/" . $nombreImagen; // Ruta absoluta donde se guardará la imagen
+
+            // Mover la imagen a la carpeta "imagenesEvento"
+            if (move_uploaded_file($rutaTemporal, $rutaDestino)) {
+                // Guarda solo el nombre de la imagen en la base de datos
+                $sql = "INSERT INTO evento (nombre_evento, descripcion, fecha_evento, horario_evento, img, id_auditorio) 
+                        VALUES ('$nombre_evento', '$descripcion', '$fecha_evento', '$horario_evento', '$nombreImagen', '$id_auditorio')";
+
+                if (mysqli_query($con, $sql)) {
+                    $_SESSION['mensaje'] = '<div class="alert alert-success">Evento registrado correctamente</div>';
+                } else {
+                    $_SESSION['mensaje'] = '<div class="alert alert-danger">Error al registrar evento: ' . mysqli_error($con) . '</div>';
+                }
+            } else {
+                $_SESSION['mensaje'] = '<div class="alert alert-danger">Error al mover la imagen a la carpeta de destino</div>';
+            }
         }
     } else {
-        echo '<div class="alert alert-warning">Alguno de los campos está vacío</div>';
+        $_SESSION['mensaje'] = '<div class="alert alert-warning">Alguno de los campos está vacío</div>';
     }
+
+    // Redireccionar de vuelta a evento.php para mostrar el mensaje
+    header("Location: evento.php"); 
+    exit();
 }
 ?>
