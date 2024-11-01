@@ -3,7 +3,7 @@ session_start();
 /*Las sesiones son una forma sencilla de 
 almacenar datos para usuarios de manera 
 individual usando un ID de sesión único. 
-- Al usar sesiones, el mensaje se almacena de manera segura en el servidor 
+- Al usar    sesiones, el mensaje se almacena de manera segura en el servidor 
 y no depende de la URL o de los datos
 - Permiten separar la lógica de registro y validación*/ 
 include "connection.php";
