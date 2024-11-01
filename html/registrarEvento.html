@@ -19,19 +19,19 @@
         <form action="insert_evento.php" method="post" enctype="multipart/form-data">
             <label for="nombre_evento">Nombre del Evento:</label>
             <input type="text" name="nombre_evento" required>
-            
+            <br>
             <label for="descripcion">Descripción:</label>
             <input type="text" name="descripcion" required>
-            
+            <br>
             <label for="fecha_evento">Fecha del Evento:</label>
             <input type="date" name="fecha_evento" required>
-            
+            <br>
             <label for="horario_evento">Horario del Evento:</label>
             <input type="time" name="horario_evento" required>
-            
+            <br>
             <label for="img">Imagen del Evento:</label>
             <input type="file" name="img" required>
-            
+            <br>
             <label for="id_auditorio">Auditorio:</label>
             <select name="id_auditorio" required>
                 <!-- <?php
@@ -42,9 +42,36 @@
                 }
                 ?> -->
             </select>
-            
-            <button type="submit">Agregar Evento</button>
+            <br>
+            <button type="submit" name="btnRegistrar" value="ok">Agregar Evento</button>
         </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Evento</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Horario</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Auditorio</th>
+                    <th scope="col"> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>uno</td>
+                    <td>dos</td>
+                    <td>tres</td>
+                    <td>cuatro</td>
+                    <td>cinco</td>
+                    <td>seis</td>
+                    <td>
+                        <a href="">Editar</a>
+                        <a href="">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
         </div>
     </body>
