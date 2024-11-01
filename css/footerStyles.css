@@ -1,4 +1,4 @@
-footer {
+/* footer {
     width: 100%;
     margin-top: 10px;
     padding: 20px;
@@ -37,4 +37,18 @@ footer {
 
 .footer-legal p {
     font-size: 12px;
+}
+ */
+ /* Pie de Página */
+ footer {
+    background-color: var(--darkest-red);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
 }
