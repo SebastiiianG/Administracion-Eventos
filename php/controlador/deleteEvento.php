@@ -13,14 +13,14 @@ if (!empty($_GET["id"])) {
         }
 
         if ($sql == 1) {
-            echo '<div>Evento eliminado correctamente</div>';
+            echo "<div class='alert alert-success'>Evento eliminado correctamente</div>";
             echo "<script>
                     setTimeout(function() {
-                        window.location.href = 'index.php';
-                    }, 2000); // Redirige después de 2 segundos
+                        window.location.href = 'evento.php';
+                    }, 2000);
                   </script>";
         } else {
-            echo '<div>Error al eliminar</div>';
+            echo "<div class='alert alert-danger'>Error al eliminar</div>";
         }
     }    
 }
