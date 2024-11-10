@@ -79,6 +79,41 @@ body {
     margin-top: 10px;
     color: var(--dark-gray);
 }
+
+/* Estilo base de las alertas */
+.alert {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+
+/* Estilo específico para alertas de peligro (rojas) */
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+/* Estilo específico para alertas de éxito (verde) */
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* Estilo específico para alertas de advertencia (amarillo) */
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+
+
 /* Responsividad */
 @media (max-width: 768px) {
     .services {

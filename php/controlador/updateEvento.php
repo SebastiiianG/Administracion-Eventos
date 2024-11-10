@@ -54,9 +54,13 @@ if (!empty($_POST["btnRegistrar"])) {
                 WHERE id_evento='$id'");
         }
 
-        if ($sql == 1) {
+        if ($sql) {
             echo "<div class='alert alert-success'>Evento modificado correctamente.</div>";
-            echo "<script>setTimeout(() => { window.location.href = 'index.php'; }, 2000);</script>";
+            echo "<script>
+                    setTimeout(function() {
+                        window.location.href = 'evento.php';
+                    }, 2000);
+                  </script>";
         } else {
             echo "<div class='alert alert-danger'>Error al modificar el evento.</div>";
         }

@@ -1,5 +1,7 @@
 <?php
 function connection(){
+    date_default_timezone_set('America/Mexico_City');
+
     $host = "localhost";
     $user = "root";
     $pass = "";

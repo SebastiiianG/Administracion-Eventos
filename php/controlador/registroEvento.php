@@ -68,8 +68,8 @@
         // Cerrar la conexión a la base de datos
         mysqli_close($con);
 
-        // Redireccionar de vuelta a index.php para mostrar el mensaje
-        header("Location:../index.php"); 
+        // Redireccionar de vuelta a evento.php para mostrar el mensaje
+        header("Location:../evento.php"); 
         exit();
     }
 ?>
