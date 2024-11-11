@@ -11,7 +11,7 @@ $fecha_fin = isset($_GET['fecha_fin']) ? $_GET['fecha_fin'] : date('Y-m-d', strt
 //echo "Fecha fin: $fecha_fin <br>";
 
 // Consulta de eventos dentro del rango de fechas especificado
-$sql = "SELECT evento.*, auditorio.capacidad, 
+$sql = "SELECT evento.*, auditorio.capacidad, auditorio.ubicacion, auditorio.nombre_auditorio, 
             (auditorio.capacidad - IFNULL((SELECT COUNT(*) FROM asistencia WHERE asistencia.id_evento = evento.id_evento), 0)) AS asientos_disponibles 
         FROM evento 
         JOIN auditorio ON evento.id_auditorio = auditorio.id_auditorio 
@@ -24,5 +24,5 @@ $resultado = mysqli_query($con, $sql);
     echo "Eventos encontrados: " . mysqli_num_rows($resultado) . "<br>";
 } else {
     echo "No se encontraron eventos en el rango de fechas.<br>";
-}
-?>*/
+}*/
+?>

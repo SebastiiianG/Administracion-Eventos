@@ -1,5 +1,5 @@
 <?php
-session_start(); // Asegúrate de iniciar la sesión al comienzo del archivo
+session_start(); 
 ?>
 
 <!DOCTYPE html>
@@ -13,12 +13,27 @@ session_start(); // Asegúrate de iniciar la sesión al comienzo del archivo
     <link rel="stylesheet" href="../css/footerStyles.css">
 </head>
 <body>
+    <!--Script para desplegar el menú lateral-->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("userMenuContent");
+            menu.classList.toggle("open"); // Agrega o quita la clase 'open' para mostrar/ocultar el menú
+        }
+
+        // Cerrar el menú si se hace clic fuera de él
+        window.onclick = function(event) {
+            const menu = document.getElementById("userMenuContent");
+            if (!event.target.matches('.menu-icon') && menu.classList.contains("open")) {
+                menu.classList.remove("open");
+            }
+        };
+    </script>
     <header>
         <div class="logo">Universidad Autónoma del Estado de Hidalgo</div>
         <nav>
             <ul>
                 <li><a href="index.php" class="nav-link">Inicio</a></li>
-                <li><a href="busqueda.php" class="nav-link">Buscar eventos</a></li>
+                <li><a href="eventosDisponibles.php" class="nav-link">Buscar eventos</a></li>
 
                 <!-- Verificación del rol de administrador -->
                 <?php if (isset($_SESSION['administrador']) && $_SESSION['administrador'] == 1): ?>
@@ -32,13 +47,21 @@ session_start(); // Asegúrate de iniciar la sesión al comienzo del archivo
         </nav>
         <div class="auth-buttons">
             <?php if (isset($_SESSION['numero_cuenta'])): ?>
-                <a href="controlador/logout.php">Cerrar Sesión</a>
+                <!-- Ícono de menú desplegable lateral con información del usuario -->
+                <div class="user-menu">
+                    <img src="../resources/icons/menu.png" alt="Menú" class="menu-icon" onclick="toggleMenu()">
+                    <div id="userMenuContent" class="user-menu-content">
+                        <p><?php echo $_SESSION['nombres'] . ' ' . $_SESSION['ap_paterno'] . ' ' . $_SESSION['ap_materno']; ?> (<?php echo $_SESSION['numero_cuenta']; ?>)</p>
+                        <a href="misEventos.php">Mis eventos</a>
+                        <a href="controlador/logout.php">Cerrar sesión</a>
+                    </div>
+                </div>
             <?php else: ?>
                 <a href="login.php">Iniciar Sesión</a>
             <?php endif; ?>
         </div>
-
     </header>
+
     <!-- Banner Principal -->
     <section class="banner">
         <h1>Gestor de eventos de la UAEH</h1>

@@ -14,7 +14,7 @@
         <nav>
             <ul>
                 <li><a href="index.php" class="nav-link">Inicio</a></li>
-                <li><a href="busqueda.php" class="nav-link">Buscar eventos</a></li>
+                <li><a href="eventosDisponibles.php" class="nav-link">Buscar eventos</a></li>
                 <li><a href="about.php" class="nav-link">Sobre Nosotros</a></li>
                 <li><a href="contacto.php" class="nav-link">Contacto</a></li>
             </ul>
