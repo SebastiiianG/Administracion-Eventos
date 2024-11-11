@@ -15,22 +15,49 @@ include "controlador/controladorDisponibles.php";
     <link rel="stylesheet" href="../css/footerStyles.css">
 </head>
 <body>
+    <!--Script para desplegar el menú lateral-->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("userMenuContent");
+            menu.classList.toggle("open"); // Agrega o quita la clase 'open' para mostrar/ocultar el menú
+        }
+
+        // Cerrar el menú si se hace clic fuera de él
+        window.onclick = function(event) {
+            const menu = document.getElementById("userMenuContent");
+            if (!event.target.matches('.menu-icon') && menu.classList.contains("open")) {
+                menu.classList.remove("open");
+            }
+        };
+    </script>
     <header>
         <div class="logo">Universidad Autónoma del Estado de Hidalgo</div>
         <nav>
             <ul>
                 <li><a href="index.php" class="nav-link">Inicio</a></li>
-                <li><a href="busqueda.php" class="nav-link">Buscar eventos</a></li>
+                <li><a href="eventosDisponibles.php" class="nav-link">Buscar eventos</a></li>
+
+                <!-- Verificación del rol de administrador -->
                 <?php if (isset($_SESSION['administrador']) && $_SESSION['administrador'] == 1): ?>
                     <li><a href="evento.php" class="nav-link">Crear un evento</a></li>
                 <?php endif; ?>
+
                 <li><a href="about.php" class="nav-link">Sobre Nosotros</a></li>
                 <li><a href="contacto.php" class="nav-link">Contacto</a></li>
             </ul>
+            <script src ="../js/linkActivo.js"></script>
         </nav>
         <div class="auth-buttons">
             <?php if (isset($_SESSION['numero_cuenta'])): ?>
-                <a href="controlador/logout.php">Cerrar Sesión</a>
+                <!-- Ícono de menú desplegable lateral con información del usuario -->
+                <div class="user-menu">
+                    <img src="../resources/icons/menu.png" alt="Menú" class="menu-icon" onclick="toggleMenu()">
+                    <div id="userMenuContent" class="user-menu-content">
+                        <p><?php echo $_SESSION['nombres'] . ' ' . $_SESSION['ap_paterno'] . ' ' . $_SESSION['ap_materno']; ?> (<?php echo $_SESSION['numero_cuenta']; ?>)</p>
+                        <a href="misEventos.php">Mis eventos</a>
+                        <a href="controlador/logout.php">Cerrar sesión</a>
+                    </div>
+                </div>
             <?php else: ?>
                 <a href="login.php">Iniciar Sesión</a>
             <?php endif; ?>
@@ -48,18 +75,23 @@ include "controlador/controladorDisponibles.php";
             <button type="submit">Filtrar</button>
         </form>
     </div>
-
+    
     <div class="eventos-disponibles">
-        <h2>Eventos Disponibles Entre las Fechas Seleccionadas</h2>
+        <h2>
+            <?php
+            echo isset($_GET['fecha_inicio']) && isset($_GET['fecha_fin']) 
+                ? "Eventos programados entre el rango de fechas" 
+                : "Eventos de la semana";
+            ?>
+        </h2>
         
         <?php if (mysqli_num_rows($resultado) > 0): ?>
             <?php while ($evento = mysqli_fetch_assoc($resultado)): ?>
                 <div class="evento-item">
                     <?php
-                    // Verificar si el evento actual coincide con el evento de la confirmación
                     if (isset($_GET['evento_id']) && $_GET['evento_id'] == $evento['id_evento'] && isset($_SESSION['mensaje'])) {
                         echo $_SESSION['mensaje'];
-                        unset($_SESSION['mensaje']); // Eliminar el mensaje de la sesión después de mostrarlo
+                        unset($_SESSION['mensaje']); 
                     }
                     ?>
                     <h3><?php echo $evento['nombre_evento']; ?></h3>
@@ -70,30 +102,56 @@ include "controlador/controladorDisponibles.php";
                     <p><strong>Descripción:</strong> <?php echo $evento['descripcion']; ?></p>
                     <p><strong>Capacidad del Auditorio:</strong> <?php echo $evento['capacidad']; ?></p>
                     <p><strong>Asientos Disponibles:</strong> <?php echo $evento['asientos_disponibles']; ?></p>
+
+                    <!-- Mostrar "Evento lleno" si el evento está lleno -->
+                    <?php if ($evento['asientos_disponibles'] <= 0): ?>
+                        <p><strong>Evento lleno</strong></p>
+                    <?php endif; ?>
+
+                    <!-- Si el usuario ha iniciado sesión -->
+                    <?php if (isset($_SESSION['numero_cuenta'])): ?>
+                        <?php
+                        $id_evento = $evento['id_evento'];
+                        $numero_cuenta = $_SESSION['numero_cuenta'];
+                        $query_check = "SELECT * FROM asistencia WHERE id_evento = '$id_evento' AND numero_cuenta = '$numero_cuenta'";
+                        $check_result = mysqli_query($con, $query_check);
+                        $asistido = mysqli_num_rows($check_result) > 0;
+                        ?>
+                        <form method="POST" action="controlador/confirmarAsistencia.php" onsubmit="guardarPosicion()">
+                            <input type="hidden" name="id_evento" value="<?php echo $evento['id_evento']; ?>">
+
+                            <?php if ($asistido): ?>
+                                <!-- Mostrar "Desconfirmar asistencia" si el usuario ya ha confirmado -->
+                                <button type="submit" name="accion" value="desconfirmar">Desconfirmar asistencia</button>
+                            <?php elseif ($evento['asientos_disponibles'] > 0): ?>
+                                <!-- Mostrar "Confirmar asistencia" si hay asientos disponibles y el usuario no ha confirmado -->
+                                <button type="submit" name="accion" value="confirmar">Confirmar asistencia</button>
+                            <?php endif; ?>
+                        </form>
+                    <?php endif; ?>
                 </div>
-                <?php if (isset($_SESSION['numero_cuenta'])): ?>
-                    <?php
-                    $id_evento = $evento['id_evento'];
-                    $numero_cuenta = $_SESSION['numero_cuenta'];
-                    $query_check = "SELECT * FROM asistencia WHERE id_evento = '$id_evento' AND numero_cuenta = '$numero_cuenta'";
-                    $check_result = mysqli_query($con, $query_check);
-                    $asistido = mysqli_num_rows($check_result) > 0;
-                    ?>
-                    
-                    <form method="POST" action="controlador/confirmarAsistencia.php">
-                        <input type="hidden" name="id_evento" value="<?php echo $evento['id_evento']; ?>">
-                        <?php if ($asistido): ?>
-                            <button type="submit" name="accion" value="desconfirmar">Desconfirmar asistencia</button>
-                        <?php else: ?>
-                            <button type="submit" name="accion" value="confirmar">Confirmar asistencia</button>
-                        <?php endif; ?>
-                    </form>
-                <?php endif; ?>
             <?php endwhile; ?>
         <?php else: ?>
             <p>No hay eventos programados para el rango de fechas seleccionado.</p>
         <?php endif; ?>
     </div>
+
+    <script>
+        // Guardar la posición de desplazamiento en localStorage al enviar el formulario
+        function guardarPosicion() {
+            localStorage.setItem('scrollPosition', window.scrollY);
+        }
+
+        // Restaurar la posición de desplazamiento después de que la página se haya cargado
+        document.addEventListener("DOMContentLoaded", function() {
+            if (localStorage.getItem('scrollPosition')) {
+                window.scrollTo(0, localStorage.getItem('scrollPosition'));
+                localStorage.removeItem('scrollPosition'); // Elimina el valor para que no afecte futuras cargas
+            }
+        });
+    </script>
+
+
 
     <footer>
         <p>&copy; 2024 Gestor de Eventos. Todos los derechos reservados.</p>
