@@ -2,6 +2,8 @@
 session_start();
 include "connection.php";
 include "controlador/controladorDisponibles.php";
+date_default_timezone_set('America/Mexico_City'); // Establece la zona horaria a CDMX
+$fecha_actual = date('Y-m-d'); // Obtiene la fecha actual en formato 'YYYY-MM-DD'
 ?>
 
 <!DOCTYPE html>
@@ -69,14 +71,24 @@ include "controlador/controladorDisponibles.php";
     <div class="filter-container">
         <form method="GET" action="">
             <label for="fecha_inicio">Desde:</label>
-            <input type="date" name="fecha_inicio" value="<?php echo isset($_GET['fecha_inicio']) ? $_GET['fecha_inicio'] : ''; ?>" required>
+            <input type="date" id="fecha_inicio" name="fecha_inicio" value="<?php echo isset($_GET['fecha_inicio']) ? $_GET['fecha_inicio'] : ''; ?>" required>
             
             <label for="fecha_fin">Hasta:</label>
-            <input type="date" name="fecha_fin" value="<?php echo isset($_GET['fecha_fin']) ? $_GET['fecha_fin'] : ''; ?>" required>
+            <input type="date" id="fecha_fin" name="fecha_fin" value="<?php echo isset($_GET['fecha_fin']) ? $_GET['fecha_fin'] : ''; ?>" required>
             
             <button type="submit">Filtrar</button>
         </form>
     </div>
+
+    <script>
+    // Usar la fecha actual desde PHP
+    document.addEventListener('DOMContentLoaded', function () {
+        const fechaActual = "<?php echo $fecha_actual; ?>"; // La fecha actual en formato YYYY-MM-DD
+        document.getElementById('fecha_inicio').setAttribute('min', fechaActual); // Asigna el valor mínimo
+        document.getElementById('fecha_fin').setAttribute('min', fechaActual); // Asigna el valor mínimo
+    });
+    </script>
+
 
     <div class="eventos-disponibles">
         <h2>
