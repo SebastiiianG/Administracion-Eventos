@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/headerStyles.css">
     <link rel="stylesheet" href="../css/footerStyles.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
     <header>
@@ -26,29 +27,31 @@
     </header>
 
     <!-- Formulario de Inicio de Sesión -->
-    <div class="login-container">
-        <h2>Iniciar Sesión</h2>
+    <div class="login-wrapper">
+        <div class="login-container">
+            <h2>Iniciar Sesión</h2>
 
-        <?php
-        session_start();
-        if (isset($_SESSION['error'])) {
-            echo "<div class='alert alert-danger'>" . $_SESSION['error'] . "</div>";
-            unset($_SESSION['error']); // Elimina el mensaje después de mostrarlo
-        }
-        ?>
-
-        <form action="controlador/loginControlador.php" method="POST">
             <?php
-                include "controlador/updateEvento.php";
+            session_start();
+            if (isset($_SESSION['error'])) {
+                echo "<div class='alert alert-danger'>" . $_SESSION['error'] . "</div>";
+                unset($_SESSION['error']); // Elimina el mensaje después de mostrarlo
+            }
             ?>
-            <label for="numero_cuenta">Número de Cuenta:</label>
-            <input type="text" name="numero_cuenta" required>
-            
-            <label for="nip">NIP:</label>
-            <input type="password" name="nip" required>
-            
-            <button type="submit" name="btnLogin">Iniciar Sesión</button>
-        </form>
+
+            <form class="login-form" action="controlador/loginControlador.php" method="POST">
+                <?php
+                    include "controlador/updateEvento.php";
+                ?>
+                <label for="numero_cuenta">Número de Cuenta:</label>
+                <input type="text" name="numero_cuenta" required>
+                
+                <label for="nip">NIP:</label>
+                <input type="password" name="nip" required>
+                
+                <button type="submit" name="btnLogin">Iniciar Sesión</button>
+            </form>
+        </div>
     </div>
 
     <footer>
