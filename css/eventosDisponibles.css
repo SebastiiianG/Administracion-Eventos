@@ -1,0 +1,149 @@
+/* Contenedor para el filtro de fechas */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.filter-container form {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-container label {
+    font-weight: bold;
+    color: #333;
+}
+
+.filter-container input,
+.filter-container button {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.filter-container button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Contenedor principal de eventos */
+.eventos-disponibles {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.eventos-disponibles h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de la cuadrícula de eventos */
+.eventos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .eventos-grid {
+        grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas medianas y grandes */
+    }
+}
+
+/* Estilos para cada evento */
+.evento-item {
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.evento-item h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.evento-item img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Contenedor de detalles del evento */
+.evento-details {
+    flex: 1;
+}
+
+.evento-details p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.evento-details p strong {
+    color: #333;
+}
+
+/* Mensaje de "Evento lleno" */
+.evento-details .evento-lleno {
+    font-weight: bold;
+    color: #dc3545;
+    margin-top: 10px;
+}
+
+
+/* Estilos generales para los botones */
+.evento-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Botón de Confirmar asistencia */
+.evento-button.confirmar {
+    background-color: #28a745; /* Verde */
+    color: #fff;
+}
+
+.evento-button.confirmar:hover {
+    background-color: #218838;
+    box-shadow: 0px 4px 8px rgba(40, 167, 69, 0.4);
+}
+
+/* Botón de Desconfirmar asistencia */
+.evento-button.desconfirmar {
+    background-color: #dc3545; /* Rojo */
+    color: #fff;
+}
+
+.evento-button.desconfirmar:hover {
+    background-color: #c82333;
+    box-shadow: 0px 4px 8px rgba(220, 53, 69, 0.4);
+}
+

@@ -23,6 +23,8 @@ $auditorio_query = mysqli_query($con, $auditorio_sql);
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/headerStyles.css">
     <link rel="stylesheet" href="../css/footerStyles.css">
+    <link rel="stylesheet" href="../css/modificarEvento.css">
+
 </head>
 <body>
     <!--Script para desplegar el menú lateral-->
@@ -64,6 +66,7 @@ $auditorio_query = mysqli_query($con, $auditorio_sql);
                     <img src="../resources/icons/menu.png" alt="Menú" class="menu-icon" onclick="toggleMenu()">
                     <div id="userMenuContent" class="user-menu-content">
                         <p><?php echo $_SESSION['nombres'] . ' ' . $_SESSION['ap_paterno'] . ' ' . $_SESSION['ap_materno']; ?> (<?php echo $_SESSION['numero_cuenta']; ?>)</p>
+                        <p><?php echo $_SESSION['licenciatura'] . ' ' . $_SESSION['semestre'] . '° ' . $_SESSION['grupo']; ?></p>
                         <a href="misEventos.php">Mis eventos</a>
                         <a href="controlador/logout.php">Cerrar sesión</a>
                     </div>
@@ -73,42 +76,45 @@ $auditorio_query = mysqli_query($con, $auditorio_sql);
             <?php endif; ?>
         </div>
     </header>
-    <form method="POST" enctype="multipart/form-data">
-        <h5>Modificar evento</h5>
+
+    <!--<button type="button" onclick="window.location.href='evento.php'"></button>-->
+    <div>
+        <a href="evento.php" class="back-link">Regresar</a>
+    </div>
+        
+    <form method="POST" enctype="multipart/form-data" class="form-container">
+        <h5 class="form-header">Modificar evento</h5>
         <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
         <?php
         include "controlador/updateEvento.php";
         while ($datos = $modif_query->fetch_object()) { ?>
 
-            <label for="nombre_evento">Nombre del Evento:</label>
-            <input type="text" name="nombre_evento" value="<?= $datos->nombre_evento ?>" required>
-            <br>
-            <label for="descripcion">Descripción:</label>
-            <input type="text" name="descripcion" value="<?= $datos->descripcion ?>" required>
-            <br>
-            <label for="fecha_evento">Fecha del Evento:</label>
-            <input type="date" name="fecha_evento" value="<?= $datos->fecha_evento ?>" required>
-            <br>
-            <label for="horario_evento">Horario del Evento:</label>
-            <input type="time" name="horario_evento" value="<?= $datos->horario_evento ?>" required>
-            <br>
-            <label for="duracion_evento">Duración del Evento (en minutos):</label>
-            <input type="number" name="duracion_evento" value="<?= $datos->duracion_evento ?>" required min="1" step="1">
-            <br>
-            <!-- Imagen del Evento -->
-            <label for="img">Imagen del Evento:</label>
-            <br>
+            <label for="nombre_evento" class="form-label">Nombre del Evento:</label>
+            <input type="text" name="nombre_evento" value="<?= $datos->nombre_evento ?>" required class="form-input">
+            
+            <label for="descripcion" class="form-label">Descripción:</label>
+            <input type="text" name="descripcion" value="<?= $datos->descripcion ?>" required class="form-input">
+            
+            <label for="fecha_evento" class="form-label">Fecha del Evento:</label>
+            <input type="date" name="fecha_evento" value="<?= $datos->fecha_evento ?>" required class="form-input">
+            
+            <label for="horario_evento" class="form-label">Horario del Evento:</label>
+            <input type="time" name="horario_evento" value="<?= $datos->horario_evento ?>" required class="form-input">
+            
+            <label for="duracion_evento" class="form-label">Duración del Evento (en minutos):</label>
+            <input type="number" name="duracion_evento" value="<?= $datos->duracion_evento ?>" required min="1" step="1" class="form-input">
+            
+            <label for="img" class="form-label">Imagen del Evento:</label>
+            
             <?php if (!empty($datos->img)) { ?>
-                <img src="imagenesEvento/<?= $datos->img ?>" alt="Imagen actual del Evento" style="width: 100px; height: auto;">
-                <br>
-                <span>Sube una nueva imagen si deseas cambiarla:</span>
+                <img src="imagenesEvento/<?= $datos->img ?>" alt="Imagen actual del Evento" class="event-image">
+                <span class="image-instruction">Sube una nueva imagen si deseas cambiarla:</span>
             <?php } ?>
-            <input type="file" name="img">
-            <br>
-
-            <!-- Select de Auditorio -->
-            <label for="id_auditorio">Auditorio:</label>
-            <select name="id_auditorio" required>
+            
+            <input type="file" name="img" class="form-file-input">
+            
+            <label for="id_auditorio" class="form-label">Auditorio:</label>
+            <select name="id_auditorio" required class="form-select">
                 <?php
                 while ($auditorio = $auditorio_query->fetch_assoc()) {
                     $selected = ($auditorio['id_auditorio'] == $datos->id_auditorio) ? 'selected' : '';
@@ -118,8 +124,7 @@ $auditorio_query = mysqli_query($con, $auditorio_sql);
             </select>
         <?php } ?>
         
-        <br>
-        <button type="submit" name="btnRegistrar" value="ok">Modificar Evento</button>
+        <button type="submit" name="btnRegistrar" value="ok" class="submit-button">Modificar Evento</button>
     </form>
     <!-- Pie de Página -->
     <footer>

@@ -52,7 +52,8 @@
                 <div class="user-menu">
                     <img src="../resources/icons/menu.png" alt="Menú" class="menu-icon" onclick="toggleMenu()">
                     <div id="userMenuContent" class="user-menu-content">
-                        <p><?php echo $_SESSION['nombres'] . ' ' . $_SESSION['ap_paterno'] . ' ' . $_SESSION['ap_materno']; ?> (<?php echo $_SESSION['numero_cuenta']; ?>)</p>
+                    <p><?php echo $_SESSION['nombres'] . ' ' . $_SESSION['ap_paterno'] . ' ' . $_SESSION['ap_materno']; ?> (<?php echo $_SESSION['numero_cuenta']; ?>)</p>
+                    <p><?php echo $_SESSION['licenciatura'] . ' ' . $_SESSION['semestre'] . '° ' . $_SESSION['grupo']; ?></p>
                         <a href="misEventos.php">Mis eventos</a>
                         <a href="controlador/logout.php">Cerrar sesión</a>
                     </div>
@@ -155,6 +156,7 @@
                         <td><img src="imagenesEvento/<?= $datos->img ?>" alt="Imagen del Evento" style="width: 100px; height: auto;"></td>
                         <td><?= $datos->nombre_auditorio ?></td>
                         <td>
+                            <a href="detallesEvento.php?id=<?= $datos->id_evento ?>">Consultar detalles</a>
                             <a href="modificarEvento.php?id=<?= $datos->id_evento ?>">Editar</a>
                             <a onclick="return eliminar()" href="evento.php?id=<?= $datos->id_evento ?>">Eliminar</a>
                         </td>

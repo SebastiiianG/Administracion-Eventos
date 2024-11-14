@@ -1,0 +1,98 @@
+/* Estilos del contenedor principal del formulario */
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.form-header {
+    text-align: center;
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin: 10px 0 5px;
+}
+
+.form-input,
+.form-select,
+.form-file-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-file-input:focus {
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+/* Estilos para el botón */
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Enlace de regresar */
+.back-link {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 14px;
+    color: #c60c0c;
+    text-decoration: none;
+    border: 1px solid #c60c0c;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 10px 0;
+}
+
+.back-link:hover {
+    background-color: #c60c0c;
+    color: #fff;
+}
+
+/* Imagen del evento */
+.event-image {
+    display: block;
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+/* Mensaje de instrucción para cambiar imagen */
+.image-instruction {
+    font-size: 14px;
+    color: #555;
+}
+

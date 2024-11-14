@@ -22,6 +22,9 @@ if (isset($_POST['btnLogin'])) {
         $_SESSION['nombres'] = $usuario['nombres'];
         $_SESSION['ap_paterno'] = $usuario['ap_paterno'];  
         $_SESSION['ap_materno'] = $usuario['ap_materno'];  
+        $_SESSION['licenciatura'] = $usuario['licenciatura'];
+        $_SESSION['semestre'] = $usuario['semestre'];
+        $_SESSION['grupo'] = $usuario['grupo'];
         $_SESSION['administrador'] = $usuario['administrador'];
         
         // Redirigir a la página principal
