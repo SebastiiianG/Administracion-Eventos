@@ -61,7 +61,31 @@ session_start();
                 <a href="login.php">Iniciar Sesión</a>
             <?php endif; ?>
         </div>
-    </header> 
+    </header>      
+    
+    <div>
+        <h2>1. ¿Cómo puedo registrar un nuevo evento?</h2>
+        <p>Para registrar un nuevo evento, dirígete a la página <strong>Crear un evento</strong>, completa el formulario con los detalles del evento y haz clic en "Agregar Evento". Asegúrate de llenar todos los campos requeridos.</p>
+
+        <h2>2. ¿Por qué no puedo cargar una imagen al registrar un evento?</h2>
+        <p>Revisa los siguientes puntos si tienes problemas al cargar una imagen:</p>
+        <ul>
+            <li>Asegúrate de que el archivo sea en formato JPG, PNG o GIF.</li>
+            <li>Verifica que tu navegador tenga los permisos necesarios para acceder a los archivos locales.</li>
+        </ul>
+
+        <h2>3. ¿Cómo puedo editar o eliminar un evento?</h2>
+        <p>En la tabla de eventos, encontrarás opciones para <strong>Editar</strong> o <strong>Eliminar</strong> cada evento. Haz clic en el enlace correspondiente para realizar la acción deseada.</p>
+        <p>Incluso puedes generar el reporte de tu evento al consultar los detalles.</p>
+
+        <h2>4. ¿Qué hacer si el auditorio no aparece en la lista desplegable?</h2>
+        <p>Si el auditorio no aparece, puede deberse a que no ha sido registrado en el sistema. Contacta al administrador del sistema para verificar y agregar el auditorio correspondiente tambien es posible que ese auditorio no exista.</p>
+
+        <h2>5. ¿Cómo puedo buscar eventos existentes?</h2>
+        <p>En la página <strong>Buscar eventos</strong>, encontrarás una lista de todos los eventos disponibles en la semana. Sin embargo, puedes  filtrar los eventos por fecha.</p>
+
+    </div>
+
     <!-- Pie de Página -->
     <footer>
         <p>&copy; 2024 Gestor de Eventos. Todos los derechos reservados.</p>

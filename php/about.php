@@ -62,6 +62,19 @@ session_start();
             <?php endif; ?>
         </div>
     </header> 
+
+    <div>
+        <h2>Conócenos</h2>
+        <p>Universidad Autónoma del Estado de Hidalgo - UAEH</p>
+        <p>Somos un equipo de desarrollo de la Universidad Autónoma del Estado de Hidalgo, cursando el 7º grado, Grupo 1.</p>
+        <h3>Equipo de Desarrollo</h3>
+        <ul>
+            <li>Campos Dragusin Edwin</li>
+            <li>García García Ulises Sebastian</li>
+            <li>García Sandoval Pedro Daniel</li>
+        </ul>
+    </div>
+
     <!-- Pie de Página -->
     <footer>
         <p>&copy; 2024 Gestor de Eventos. Todos los derechos reservados.</p>

@@ -62,6 +62,15 @@ session_start();
             <?php endif; ?>
         </div>
     </header> 
+    
+    <div>
+        <ul>
+            <li><strong>Pedro Daniel García Sandoval:</strong> ga454062@uaeh.edu.mx</li>
+            <li><strong>Edwin Campos Dragusin:</strong> ca465354@uaeh.edu.mx</li>
+            <li><strong>Ulises Sebastian García García:</strong> ga401420@uaeh.edu.mx</li>
+        </ul>           
+    </div>
+
     <!-- Pie de Página -->
     <footer>
         <p>&copy; 2024 Gestor de Eventos. Todos los derechos reservados.</p>
