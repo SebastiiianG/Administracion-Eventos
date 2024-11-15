@@ -117,7 +117,7 @@
             <input type="number" name="duracion_evento" required min="1" step="1">
             <br>
             <label for="img">Imagen del Evento:</label>
-            <input type="file" name="img" required>
+            <input type="file" name="img" accept="image/x-png,image/gif,image/jpeg" required>
             <br>
             <label for="id_auditorio">Auditorio:</label>
             <select name="id_auditorio" required>
