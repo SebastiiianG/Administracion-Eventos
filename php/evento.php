@@ -1,5 +1,7 @@
 <?php
     session_start();
+    date_default_timezone_set('America/Mexico_City'); // Establece la zona horaria a CDMX
+    $fecha_actual = date('Y-m-d'); // Obtiene la fecha actual en formato 'YYYY-MM-DD'
 ?>
 
 <!DOCTYPE html>
@@ -108,7 +110,7 @@
             <input type="text" name="descripcion" required>
             <br>
             <label for="fecha_evento">Fecha del Evento:</label>
-            <input type="date" name="fecha_evento" required>
+            <input type="date" id="fecha_evento" name="fecha_evento" required>
             <br>
             <label for="horario_evento">Horario del Evento:</label>
             <input type="time" name="horario_evento" required>
@@ -131,6 +133,13 @@
             <button type="submit" name="btnRegistrar" value="ok">Agregar Evento</button>
         </form>
 
+        <script>
+        // Usar la fecha actual desde PHP
+        document.addEventListener('DOMContentLoaded', function () {
+            const fechaActual = "<?php echo $fecha_actual; ?>"; // La fecha actual en formato YYYY-MM-DD
+            document.getElementById('fecha_evento').setAttribute('min', fechaActual); // Asigna el valor mínimo
+        });
+        </script>
 
         <table class="table">
             <thead>
