@@ -3,7 +3,7 @@ function connection(){
     date_default_timezone_set("America/Mexico_City");
     $host = "localhost";
     $user = "root";
-    $pass = "";
+    $pass = "Edwin321";
     $bd = "eventos";
     $connect = mysqli_connect($host, $user, $pass);
 
