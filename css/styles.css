@@ -19,14 +19,16 @@ body {
 
 /* Banner Principal */
 .banner {
+    position: relative;
     color: white;
     text-align: center;
     padding: 100px 20px;
-    background-image:url("../resources/banner_header.jpg");
+    background-image: url('../resources/banner_header.jpg');
+    background-position: center;
     background-size: cover;
-    background-position: 0px -500px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    overflow: visible;
 }
 
 .banner h1 {

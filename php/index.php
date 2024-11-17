@@ -11,6 +11,7 @@ session_start();
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/headerStyles.css">
     <link rel="stylesheet" href="../css/footerStyles.css">
+    <link rel="stylesheet" href="../css/indexStyles.css">
 </head>
 <body>
     <!--Script para desplegar el menú lateral-->
@@ -65,6 +66,12 @@ session_start();
 
     <!-- Banner Principal -->
     <section class="banner">
+        <div class="parallax">
+            <div class="layer" data-depth="0.2"></div>
+            <div class="layer" data-depth="0.5"></div>
+            <div class="layer" data-depth="1"></div>
+        </div>
+        <script src="../js/parallax.js"></script>
         <h1>Gestor de eventos de la UAEH</h1>
         <p>
             El <strong>orden</strong> en la gestión, el <strong>amor</strong> en la participación, y el <strong>progreso</strong> en cada experiencia.

@@ -1,9 +1,10 @@
 <?php
-session_start(); 
+session_start();
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <title>Contacto</title>
     <meta charset="UTF-8">
@@ -11,7 +12,9 @@ session_start();
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/headerStyles.css">
     <link rel="stylesheet" href="../css/footerStyles.css">
+    <link rel="stylesheet" href="../css/contactoStyles.css">
 </head>
+
 <body>
     <!--Script para desplegar el menú lateral-->
     <script>
@@ -21,7 +24,7 @@ session_start();
         }
 
         // Cerrar el menú si se hace clic fuera de él
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             const menu = document.getElementById("userMenuContent");
             if (!event.target.matches('.menu-icon') && menu.classList.contains("open")) {
                 menu.classList.remove("open");
@@ -43,7 +46,7 @@ session_start();
                 <li><a href="about.php" class="nav-link">Sobre Nosotros</a></li>
                 <li><a href="contacto.php" class="nav-link">Contacto</a></li>
             </ul>
-            <script src ="../js/linkActivo.js"></script>
+            <script src="../js/linkActivo.js"></script>
         </nav>
         <div class="auth-buttons">
             <?php if (isset($_SESSION['numero_cuenta'])): ?>
@@ -51,8 +54,10 @@ session_start();
                 <div class="user-menu">
                     <img src="../resources/icons/menu.png" alt="Menú" class="menu-icon" onclick="toggleMenu()">
                     <div id="userMenuContent" class="user-menu-content">
-                        <p><?php echo $_SESSION['nombres'] . ' ' . $_SESSION['ap_paterno'] . ' ' . $_SESSION['ap_materno']; ?> (<?php echo $_SESSION['numero_cuenta']; ?>)</p>
-                        <p><?php echo $_SESSION['licenciatura'] . ' ' . $_SESSION['semestre'] . '° ' . $_SESSION['grupo']; ?></p>
+                        <p><?php echo $_SESSION['nombres'] . ' ' . $_SESSION['ap_paterno'] . ' ' . $_SESSION['ap_materno']; ?>
+                            (<?php echo $_SESSION['numero_cuenta']; ?>)</p>
+                        <p><?php echo $_SESSION['licenciatura'] . ' ' . $_SESSION['semestre'] . '° ' . $_SESSION['grupo']; ?>
+                        </p>
                         <a href="misEventos.php">Mis eventos</a>
                         <a href="controlador/logout.php">Cerrar sesión</a>
                     </div>
@@ -61,16 +66,20 @@ session_start();
                 <a href="login.php">Iniciar Sesión</a>
             <?php endif; ?>
         </div>
-    </header> 
-    
-    <div>
-        <ul>
-            <li><strong>Pedro Daniel García Sandoval:</strong> ga454062@uaeh.edu.mx</li>
-            <li><strong>Edwin Campos Dragusin:</strong> ca465354@uaeh.edu.mx</li>
-            <li><strong>Ulises Sebastian García García:</strong> ga401420@uaeh.edu.mx</li>
-        </ul>           
+    </header>
+    <div class="parallax">
+        <div class="layer" data-depth="0.2"></div>
+        <div class="layer" data-depth="0.5"></div>
+        <div class="layer" data-depth="1"></div>
     </div>
-
+    <script src="../js/parallax.js"></script>
+    <div class="content-container">
+        <ul class="contact-list">
+            <li class="contact-item"><strong>Pedro Daniel García Sandoval:</strong> ga454062@uaeh.edu.mx</li>
+            <li class="contact-item"><strong>Edwin Campos Dragusin:</strong> ca465354@uaeh.edu.mx</li>
+            <li class="contact-item"><strong>Ulises Sebastian García García:</strong> ga401420@uaeh.edu.mx</li>
+        </ul>
+    </div>
     <!-- Pie de Página -->
     <footer>
         <p>&copy; 2024 Gestor de Eventos. Todos los derechos reservados.</p>
@@ -81,7 +90,8 @@ session_start();
             <a href="#">Instituto de Ciencias Básicas e Ingeniería</a> |
             <a href="tel:+527713038278">Teléfono</a> |
             <a href="mailto:ca465354@uaeh.edu.mx">Correo Electrónico</a>
-        </p>    
-    </footer> 
+        </p>
+    </footer>
 </body>
+
 </html>
