@@ -1,0 +1,108 @@
+/* Contenedor principal del formulario */
+#formulario {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del formulario */
+.titulo-formulario {
+    text-align: center;
+    color: #B91116; /* Rojo Pantone */
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Estilo general para las etiquetas */
+.label-input {
+    font-weight: bold;
+    color: #511013; /* Texto principal */
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Estilo para los campos de texto y selección */
+.input-text,
+.input-date,
+.input-time,
+.input-number,
+.input-file,
+.select-auditorio {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #511013; /* Texto principal */
+}
+
+/* Botones */
+.boton-submit {
+    background-color: #F39200; /* Amarillo Pantone */
+    border: none;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto; /* Centrado */
+}
+
+.boton-submit:hover {
+    background-color: #E24622; /* Naranja Pantone */
+}
+
+.boton-submit:active {
+    background-color: #B91116; /* Rojo Pantone */
+}
+
+/* Tabla de eventos */
+.tabla-eventos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabla-eventos th,
+.tabla-eventos td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #DDD;
+    font-size: 14px;
+}
+
+.tabla-eventos th {
+    background-color: #F39200; /* Amarillo Pantone */
+    color: #FFF;
+}
+
+.tabla-eventos td {
+    background-color: #FFF;
+}
+
+.tabla-eventos .img-evento {
+    width: 100px;
+    height: auto;
+}
+
+/* Enlaces */
+.enlace-evento {
+    color: #E24622; /* Naranja Pantone */
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.enlace-evento:hover {
+    text-decoration: underline;
+    color: #B91116; /* Rojo Pantone */
+}

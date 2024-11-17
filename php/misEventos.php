@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/headerStyles.css">
         <link rel="stylesheet" href="../css/footerStyles.css">
+        <link rel="stylesheet" href="../css/misEventosStyles.css">
     </head>
     <body>
         <!--Script para desplegar el menú lateral-->
@@ -66,7 +67,7 @@
         </header>
 
 
-        <div class="container">
+        <div id="container-mis-eventos">
             <h2>Mis eventos</h2>
 
             <!-- Eventos Futuros -->
