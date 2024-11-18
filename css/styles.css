@@ -170,7 +170,8 @@ body {
     right: 0;
     height: 100%;
     width: 250px;
-    background-color: #333; /* Fondo más oscuro */
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo más oscuro */
+    backdrop-filter: blur(15px);
     box-shadow: -2px 0px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     padding: 20px;

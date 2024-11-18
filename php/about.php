@@ -73,27 +73,29 @@ session_start();
         <div class="layer" data-depth="1"></div>
     </div>
     <script src="../js/parallax.js"></script>
-    <div class="about-section">
-        <h2>Conócenos</h2>
-        <p class="description">
-            Universidad Autónoma del Estado de Hidalgo - UAEH
-            <br>
-            Somos un equipo de desarrollo de la Universidad Autónoma del Estado de Hidalgo, cursando el 7º grado, Grupo
-            1.
-        </p>
-        <h3>Equipo de Desarrollo</h3>
-        <div class="team">
-            <div class="team-member">
-                <img src="../resources/aboutUs_resources/pfpEdwin.jpeg" alt="Campos Dragusin Edwin">
-                <p>Campos Dragusin Edwin</p>
-            </div>
-            <div class="team-member">
-                <img src="../resources/aboutUs_resources/pfpEdwin.jpeg" alt="Campos Dragusin Edwin">
-                <p>García García Ulises Sebastian</p>
-            </div>
-            <div class="team-member">
-                <img src="../resources/aboutUs_resources/pfpEdwin.jpeg" alt="Campos Dragusin Edwin">
-                <p>García Sandoval Pedro Daniel</p>
+    <div id="main-content">
+        <div class="about-section">
+            <h2>Conócenos</h2>
+            <p class="description">
+                Universidad Autónoma del Estado de Hidalgo - UAEH
+                <br>
+                Somos un equipo de desarrollo de la Universidad Autónoma del Estado de Hidalgo, cursando el 7º grado, Grupo
+                1.
+            </p>
+            <h3>Equipo de Desarrollo</h3>
+            <div class="team">
+                <div class="team-member">
+                    <img src="../resources/aboutUs_resources/pfpEdwin.jpeg" alt="Campos Dragusin Edwin">
+                    <p>Campos Dragusin Edwin</p>
+                </div>
+                <div class="team-member">
+                    <img src="../resources/aboutUs_resources/pfpEdwin.jpeg" alt="Campos Dragusin Edwin">
+                    <p>García García Ulises Sebastian</p>
+                </div>
+                <div class="team-member">
+                    <img src="../resources/aboutUs_resources/pfpEdwin.jpeg" alt="Campos Dragusin Edwin">
+                    <p>García Sandoval Pedro Daniel</p>
+                </div>
             </div>
         </div>
     </div>

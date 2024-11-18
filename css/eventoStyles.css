@@ -80,35 +80,47 @@
 /* Tabla de eventos */
 .tabla-eventos {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate; /* Permite separar los bordes */
+    border-spacing: 0 10px; /* Añade espacio vertical entre filas */
     margin-top: 20px;
+}
+
+.tabla-eventos thead th {
+    background-color: #F39200; /* Amarillo Pantone */
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    margin: 20px;
+}
+
+.tabla-eventos tbody tr {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tabla-eventos tbody tr:hover {
+    background: rgba(255, 255, 255, 1);
 }
 
 .tabla-eventos th,
 .tabla-eventos td {
-    text-align: left;
     padding: 10px;
-    border: 1px solid #DDD;
-    font-size: 14px;
-}
-
-.tabla-eventos th {
-    background-color: #F39200; /* Amarillo Pantone */
-    color: #FFF;
-}
-
-.tabla-eventos td {
-    background-color: #FFF;
+    text-align: center;
+    border: none;
 }
 
 .tabla-eventos .img-evento {
     width: 100px;
     height: auto;
+    border-radius: 5px;
 }
 
 /* Enlaces */
 .enlace-evento {
-    color: #E24622; /* Naranja Pantone */
+    color: #E24622;
     text-decoration: none;
     font-weight: bold;
     margin-right: 10px;
@@ -116,7 +128,7 @@
 
 .enlace-evento:hover {
     text-decoration: underline;
-    color: #B91116; /* Rojo Pantone */
+    color: #B91116;
 }
 /*Estilos para efecto parallax*/
 .parallax {
