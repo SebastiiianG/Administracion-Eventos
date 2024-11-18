@@ -11,7 +11,7 @@
 }
 /* Encabezado */
 header {
-    background-color: #706a5c;
+    background-color: #841816;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -20,6 +20,7 @@ header {
     z-index: 100;
     position: sticky;
     transition: all ease-in-out;
+    z-index: 100;
 }
 
 .logo {

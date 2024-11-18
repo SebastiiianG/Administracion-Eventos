@@ -48,6 +48,7 @@
     text-align: center;
     z-index: 100;
     transition: all ease-in-out;
+    margin-top: auto;
 }
 
 footer a {

@@ -65,73 +65,79 @@
                 <?php endif; ?>
             </div>
         </header>
-
-
-        <div id="container-mis-eventos">
-            <h2>Mis eventos</h2>
-
-            <!-- Eventos Futuros -->
-            <section>
-                <h3>Próximos Eventos</h3>
-                <?php if (mysqli_num_rows($resultado_futuros) > 0): ?>
-                    <?php while ($evento = mysqli_fetch_assoc($resultado_futuros)): ?>
-                        <div class="evento-item">
-                            <h3><?php echo $evento['nombre_evento']; ?></h3>
-                            <p><strong>Fecha:</strong> <?php echo $evento['fecha_evento']; ?></p>
-                            <p><strong>Horario:</strong> <?php echo $evento['horario_evento']; ?></p>
-                            <p><strong>Duración:</strong> <?php echo $evento['duracion_evento']; ?> minutos</p>
-                            <p><strong>Descripción:</strong> <?php echo $evento['descripcion']; ?></p>
-                            <p><strong>Auditorio::</strong> <?php echo $evento['nombre_auditorio']; ?></p>
-
-                            <!-- Bloque de consulta para verificar si ya está confirmado -->
-                            <?php
-                            $id_evento = $evento['id_evento'];
-                            $query_check = "SELECT * FROM asistencia WHERE id_evento = '$id_evento' AND numero_cuenta = '$numero_cuenta'";
-                            $check_result = mysqli_query($con, $query_check);
-                            $asistido = mysqli_num_rows($check_result) > 0;
-                            ?>
-
-                            <!-- Botón de Confirmar/Desconfirmar asistencia -->
-                            <form method="POST" action="controlador/confirmarAsistencia.php" onsubmit="guardarPosicion()">
-                                <input type="hidden" name="id_evento" value="<?php echo $evento['id_evento']; ?>">
-                                <input type="hidden" name="origen" value="misEventos"> <!-- Campo oculto para el origen -->
-
-                                <?php if ($asistido): ?>
-                                    <button type="submit" name="accion" value="desconfirmar">Desconfirmar asistencia</button>
-                                <?php else: ?>
-                                    <button type="submit" name="accion" value="confirmar">Confirmar asistencia</button>
-                                <?php endif; ?>
-                            </form>
-                        </div>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <p>No tienes eventos futuros confirmados.</p>
-                <?php endif; ?>
-            </section>
-
-
-            <!-- Eventos Pasados -->
-            <section>
-                <h3>Eventos Finalizados</h3>
-                <?php if (mysqli_num_rows($resultado_pasados) > 0): ?>
-                    <?php while ($evento = mysqli_fetch_assoc($resultado_pasados)): ?>
-                        <div class="evento-item">
-                            <h3><?php echo $evento['nombre_evento']; ?></h3>
-                            <p><strong>Fecha:</strong> <?php echo $evento['fecha_evento']; ?></p>
-                            <p><strong>Horario:</strong> <?php echo $evento['horario_evento']; ?></p>
-                            <p><strong>Duración:</strong> <?php echo $evento['duracion_evento']; ?> minutos</p>
-                            <p><strong>Descripción:</strong> <?php echo $evento['descripcion']; ?></p>
-                            <p><strong>Auditorio:</strong> <?php echo $evento['nombre_auditorio']; ?></p>
-                            <p><strong>Ubicación:</strong> <?php echo $evento['ubicacion']; ?></p>
-                            <p><strong>Status:</strong> Evento finalizado</p>
-                        </div>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <p>No tienes eventos pasados.</p>
-                <?php endif; ?>
-            </section>
+        <div class="parallax">
+        <div class="layer" data-depth="0.2"></div>
+        <div class="layer" data-depth="0.5"></div>
+        <div class="layer" data-depth="1"></div>
+    </div>
+    <script src="../js/parallax.js"></script>      
+        <div id="main-content">
+            <div id="container-mis-eventos">
+                        <h2>Mis eventos</h2>
+            
+                        <!-- Eventos Futuros -->
+                        <section>
+                            <h3>Próximos Eventos</h3>
+                            <?php if (mysqli_num_rows($resultado_futuros) > 0): ?>
+                                <?php while ($evento = mysqli_fetch_assoc($resultado_futuros)): ?>
+                                    <div class="evento-item">
+                                        <h3><?php echo $evento['nombre_evento']; ?></h3>
+                                        <p><strong>Fecha:</strong> <?php echo $evento['fecha_evento']; ?></p>
+                                        <p><strong>Horario:</strong> <?php echo $evento['horario_evento']; ?></p>
+                                        <p><strong>Duración:</strong> <?php echo $evento['duracion_evento']; ?> minutos</p>
+                                        <p><strong>Descripción:</strong> <?php echo $evento['descripcion']; ?></p>
+                                        <p><strong>Auditorio::</strong> <?php echo $evento['nombre_auditorio']; ?></p>
+            
+                                        <!-- Bloque de consulta para verificar si ya está confirmado -->
+                                        <?php
+                                        $id_evento = $evento['id_evento'];
+                                        $query_check = "SELECT * FROM asistencia WHERE id_evento = '$id_evento' AND numero_cuenta = '$numero_cuenta'";
+                                        $check_result = mysqli_query($con, $query_check);
+                                        $asistido = mysqli_num_rows($check_result) > 0;
+                                        ?>
+            
+                                        <!-- Botón de Confirmar/Desconfirmar asistencia -->
+                                        <form method="POST" action="controlador/confirmarAsistencia.php" onsubmit="guardarPosicion()">
+                                            <input type="hidden" name="id_evento" value="<?php echo $evento['id_evento']; ?>">
+                                            <input type="hidden" name="origen" value="misEventos"> <!-- Campo oculto para el origen -->
+            
+                                            <?php if ($asistido): ?>
+                                                <button type="submit" name="accion" value="desconfirmar">Desconfirmar asistencia</button>
+                                            <?php else: ?>
+                                                <button type="submit" name="accion" value="confirmar">Confirmar asistencia</button>
+                                            <?php endif; ?>
+                                        </form>
+                                    </div>
+                                <?php endwhile; ?>
+                            <?php else: ?>
+                                <p>No tienes eventos futuros confirmados.</p>
+                            <?php endif; ?>
+                        </section>
+            
+            
+                        <!-- Eventos Pasados -->
+                        <section>
+                            <h3>Eventos Finalizados</h3>
+                            <?php if (mysqli_num_rows($resultado_pasados) > 0): ?>
+                                <?php while ($evento = mysqli_fetch_assoc($resultado_pasados)): ?>
+                                    <div class="evento-item">
+                                        <h3><?php echo $evento['nombre_evento']; ?></h3>
+                                        <p><strong>Fecha:</strong> <?php echo $evento['fecha_evento']; ?></p>
+                                        <p><strong>Horario:</strong> <?php echo $evento['horario_evento']; ?></p>
+                                        <p><strong>Duración:</strong> <?php echo $evento['duracion_evento']; ?> minutos</p>
+                                        <p><strong>Descripción:</strong> <?php echo $evento['descripcion']; ?></p>
+                                        <p><strong>Auditorio:</strong> <?php echo $evento['nombre_auditorio']; ?></p>
+                                        <p><strong>Ubicación:</strong> <?php echo $evento['ubicacion']; ?></p>
+                                        <p><strong>Status:</strong> Evento finalizado</p>
+                                    </div>
+                                <?php endwhile; ?>
+                            <?php else: ?>
+                                <p>No tienes eventos pasados.</p>
+                            <?php endif; ?>
+                        </section>
+                    </div>
+            
         </div>
-
         <!-- Pie de Página -->
         <footer>
             <p>&copy; 2024 Gestor de Eventos. Todos los derechos reservados.</p>

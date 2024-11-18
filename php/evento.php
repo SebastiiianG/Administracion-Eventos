@@ -76,104 +76,115 @@ $fecha_actual = date('Y-m-d'); // Obtiene la fecha actual en formato 'YYYY-MM-DD
             return respuesta;
         }
     </script>
-    <div id="formulario">
-        <?php
-        // Mostrar el mensaje si existe en la sesión
-        if (isset($_SESSION['mensaje'])) {
-            echo $_SESSION['mensaje'];
-            unset($_SESSION['mensaje']); // Eliminar el mensaje de la sesión después de mostrarlo
-        }
+    <div class="parallax">
+        <div class="layer" data-depth="0.2"></div>
+        <div class="layer" data-depth="0.5"></div>
+        <div class="layer" data-depth="1"></div>
+    </div>
+    <script src="../js/parallax.js"></script>
+    <div id="main-content">
 
-        include "connection.php";
-        $con = connection();
+        <div id="formulario">
+            <?php
+            // Mostrar el mensaje si existe en la sesión
+            if (isset($_SESSION['mensaje'])) {
+                echo $_SESSION['mensaje'];
+                unset($_SESSION['mensaje']); // Eliminar el mensaje de la sesión después de mostrarlo
+            }
 
-        // Consulta para obtener los auditorios
-        $auditorio_sql = "SELECT id_auditorio, nombre_auditorio FROM auditorio";
-        $auditorio_query = mysqli_query($con, $auditorio_sql);
+            include "connection.php";
+            $con = connection();
 
-        // Consulta para obtener la lista de eventos
-        $sql = "SELECT evento.*, auditorio.nombre_auditorio 
+            // Consulta para obtener los auditorios
+            $auditorio_sql = "SELECT id_auditorio, nombre_auditorio FROM auditorio";
+            $auditorio_query = mysqli_query($con, $auditorio_sql);
+
+            // Consulta para obtener la lista de eventos
+            $sql = "SELECT evento.*, auditorio.nombre_auditorio 
                 FROM evento 
                 JOIN auditorio ON evento.id_auditorio = auditorio.id_auditorio";
-        $query = mysqli_query($con, $sql);
-        ?>
-        <h5 class="titulo-formulario">Registro Evento</h5>
-
-
-        <form action="controlador/registroEvento.php" method="POST" enctype="multipart/form-data">
-            <?php
-            include "controlador/deleteEvento.php";
+            $query = mysqli_query($con, $sql);
             ?>
-            <label class="label-input" for="nombre_evento">Nombre del Evento:</label>
-            <input class="input-text" type="text" name="nombre_evento" required>
+            <h5 class="titulo-formulario">Registro Evento</h5>
 
-            <label class="label-input" for="descripcion">Descripción:</label>
-            <input class="input-text" type="text" name="descripcion" required>
 
-            <label class="label-input" for="fecha_evento">Fecha del Evento:</label>
-            <input class="input-date" type="date" id="fecha_evento" name="fecha_evento" required>
-
-            <label class="label-input" for="horario_evento">Horario del Evento:</label>
-            <input class="input-time" type="time" name="horario_evento" required>
-
-            <label class="label-input" for="duracion_evento">Duración del Evento (en minutos):</label>
-            <input class="input-number" type="number" name="duracion_evento" required min="1" step="1">
-
-            <label class="label-input" for="img">Imagen del Evento:</label>
-            <input class="input-file" type="file" name="img" accept="image/x-png,image/gif,image/jpeg" required>
-
-            <label class="label-input" for="id_auditorio">Auditorio:</label>
-            <select class="select-auditorio" name="id_auditorio" required>
+            <form action="controlador/registroEvento.php" method="POST" enctype="multipart/form-data">
                 <?php
-                while ($auditorio = $auditorio_query->fetch_assoc()) {
-                    echo "<option value='" . $auditorio['id_auditorio'] . "'>" . $auditorio['nombre_auditorio'] . "</option>";
-                }
+                include "controlador/deleteEvento.php";
                 ?>
-            </select>
+                <label class="label-input" for="nombre_evento">Nombre del Evento:</label>
+                <input class="input-text" type="text" name="nombre_evento" required>
 
-            <button class="boton-submit" type="submit" name="btnRegistrar" value="ok">Agregar Evento</button>
-        </form>
-        <script>
-            // Usar la fecha actual desde PHP
-            document.addEventListener('DOMContentLoaded', function () {
-                const fechaActual = "<?php echo $fecha_actual; ?>"; // La fecha actual en formato YYYY-MM-DD
-                document.getElementById('fecha_evento').setAttribute('min', fechaActual); // Asigna el valor mínimo
-            });
-        </script>
-        <table class="tabla-eventos">
-            <thead>
-                <tr>
-                    <th scope="col">Evento</th>
-                    <th scope="col">Descripcion</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Horario</th>
-                    <th scope="col">Duración</th>
-                    <th scope="col">Imagen</th>
-                    <th scope="col">Auditorio</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($datos = $query->fetch_object()) { ?>
+                <label class="label-input" for="descripcion">Descripción:</label>
+                <input class="input-text" type="text" name="descripcion" required>
+
+                <label class="label-input" for="fecha_evento">Fecha del Evento:</label>
+                <input class="input-date" type="date" id="fecha_evento" name="fecha_evento" required>
+
+                <label class="label-input" for="horario_evento">Horario del Evento:</label>
+                <input class="input-time" type="time" name="horario_evento" required>
+
+                <label class="label-input" for="duracion_evento">Duración del Evento (en minutos):</label>
+                <input class="input-number" type="number" name="duracion_evento" required min="1" step="1">
+
+                <label class="label-input" for="img">Imagen del Evento:</label>
+                <input class="input-file" type="file" name="img" accept="image/x-png,image/gif,image/jpeg" required>
+
+                <label class="label-input" for="id_auditorio">Auditorio:</label>
+                <select class="select-auditorio" name="id_auditorio" required>
+                    <?php
+                    while ($auditorio = $auditorio_query->fetch_assoc()) {
+                        echo "<option value='" . $auditorio['id_auditorio'] . "'>" . $auditorio['nombre_auditorio'] . "</option>";
+                    }
+                    ?>
+                </select>
+
+                <button class="boton-submit" type="submit" name="btnRegistrar" value="ok">Agregar Evento</button>
+            </form>
+            <script>
+                // Usar la fecha actual desde PHP
+                document.addEventListener('DOMContentLoaded', function () {
+                    const fechaActual = "<?php echo $fecha_actual; ?>"; // La fecha actual en formato YYYY-MM-DD
+                    document.getElementById('fecha_evento').setAttribute('min', fechaActual); // Asigna el valor mínimo
+                });
+            </script>
+            <table class="tabla-eventos">
+                <thead>
                     <tr>
-                        <td><?= $datos->nombre_evento ?></td>
-                        <td><?= $datos->descripcion ?></td>
-                        <td><?= $datos->fecha_evento ?></td>
-                        <td><?= $datos->horario_evento ?></td>
-                        <td><?= $datos->duracion_evento ?> minutos</td>
-                        <td><img class="img-evento" src="imagenesEvento/<?= $datos->img ?>" alt="Imagen del Evento"></td>
-                        <td><?= $datos->nombre_auditorio ?></td>
-                        <td>
-                            <a class="enlace-evento" href="detallesEvento.php?id=<?= $datos->id_evento ?>">Consultar</a>
-                            <a class="enlace-evento" href="modificarEvento.php?id=<?= $datos->id_evento ?>">Editar</a>
-                            <a class="enlace-evento" onclick="return eliminar()"
-                                href="evento.php?id=<?= $datos->id_evento ?>">Eliminar</a>
-                        </td>
+                        <th scope="col">Evento</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Horario</th>
+                        <th scope="col">Duración</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Auditorio</th>
+                        <th scope="col">Acciones</th>
                     </tr>
-                <?php } ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php while ($datos = $query->fetch_object()) { ?>
+                        <tr>
+                            <td><?= $datos->nombre_evento ?></td>
+                            <td><?= $datos->descripcion ?></td>
+                            <td><?= $datos->fecha_evento ?></td>
+                            <td><?= $datos->horario_evento ?></td>
+                            <td><?= $datos->duracion_evento ?> minutos</td>
+                            <td><img class="img-evento" src="imagenesEvento/<?= $datos->img ?>" alt="Imagen del Evento">
+                            </td>
+                            <td><?= $datos->nombre_auditorio ?></td>
+                            <td>
+                                <a class="enlace-evento" href="detallesEvento.php?id=<?= $datos->id_evento ?>">Consultar</a>
+                                <a class="enlace-evento" href="modificarEvento.php?id=<?= $datos->id_evento ?>">Editar</a>
+                                <a class="enlace-evento" onclick="return eliminar()"
+                                    href="evento.php?id=<?= $datos->id_evento ?>">Eliminar</a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </div>
+
     <!-- Pie de Página -->
     <footer>
         <p>&copy; 2024 Gestor de Eventos. Todos los derechos reservados.</p>

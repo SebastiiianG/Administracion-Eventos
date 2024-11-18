@@ -1,4 +1,7 @@
 /*Estilos para efecto parallax*/
+body{
+  background-color: darkred;
+}
 .parallax {
     position: absolute;
     width: 100%;

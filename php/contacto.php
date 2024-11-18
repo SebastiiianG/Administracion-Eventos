@@ -73,13 +73,15 @@ session_start();
         <div class="layer" data-depth="1"></div>
     </div>
     <script src="../js/parallax.js"></script>
-    <div class="content-container">
-        <ul class="contact-list">
-            <li class="contact-item"><strong>Pedro Daniel García Sandoval:</strong> ga454062@uaeh.edu.mx</li>
-            <li class="contact-item"><strong>Edwin Campos Dragusin:</strong> ca465354@uaeh.edu.mx</li>
-            <li class="contact-item"><strong>Ulises Sebastian García García:</strong> ga401420@uaeh.edu.mx</li>
-        </ul>
-    </div>
+   <div id="main-content">
+        <div class="content-container">
+               <ul class="contact-list">
+                   <li class="contact-item"><strong>Pedro Daniel García Sandoval:</strong> ga454062@uaeh.edu.mx</li>
+                   <li class="contact-item"><strong>Edwin Campos Dragusin:</strong> ca465354@uaeh.edu.mx</li>
+                   <li class="contact-item"><strong>Ulises Sebastian García García:</strong> ga401420@uaeh.edu.mx</li>
+               </ul>
+           </div>
+   </div>
     <!-- Pie de Página -->
     <footer>
         <p>&copy; 2024 Gestor de Eventos. Todos los derechos reservados.</p>

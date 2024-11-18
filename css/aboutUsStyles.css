@@ -21,10 +21,10 @@
 .about-section h2::after {
     content: '';
     display: block;
-    width: 80%; /* Cubre el 80% del ancho del contenedor padre */
-    height: 3px; /* Altura de 3px */
-    background-color: var(--dark-red); /* Color negro */
-    margin: 10px auto 0; /* Centrado automático, con un margen superior */
+    width: 80%;
+    height: 3px;
+    background-color: var(--dark-red);
+    margin: 10px auto 0;
 }
 .about-section h3 {
     color: black;
@@ -36,10 +36,10 @@
 .about-section h3::after {
     content: '';
     display: block;
-    width: 80%; /* Cubre el 80% del ancho del contenedor padre */
-    height: 3px; /* Altura de 3px */
-    background-color: rgb(0, 0, 0); /* Color negro */
-    margin: 10px auto 0; /* Centrado automático, con un margen superior */
+    width: 80%;
+    height: 3px;
+    background-color: black;
+    margin: 10px auto 0;
     border-radius: 50%;
 }
 
@@ -130,3 +130,41 @@
   .layer:nth-child(3) {
     background-image: url('../resources/aboutUs_resources/Capa2.png');
   }
+
+  /* Asegúrate de que todo el cuerpo de la página use flexbox */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0; /* Elimina cualquier margen predeterminado */
+}
+
+/* Contenedor principal que se expande */
+#main-content {
+    flex: 1; /* Este elemento toma el espacio restante disponible */
+    padding: 20px;
+}
+
+/* Footer siempre al final */
+footer {
+    background-color: #511013; /* Fondo rojo Pantone */
+    color: #FFFFFF; /* Texto blanco */
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-top: 20px; /* Espaciado opcional */
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #F39200; /* Amarillo Pantone */
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #E24622; /* Naranja Pantone */
+    text-decoration: underline;
+}
