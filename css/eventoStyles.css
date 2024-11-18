@@ -52,12 +52,12 @@
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
     font-size: 14px;
-    color: #511013; /* Texto principal */
+    color: #511013; 
 }
 
 /* Botones */
 .boton-submit {
-    background-color: #F39200; /* Amarillo Pantone */
+    background-color: #F39200; 
     border: none;
     color: #FFF;
     padding: 10px 20px;
@@ -66,27 +66,27 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     display: block;
-    margin: 0 auto; /* Centrado */
+    margin: 0 auto;
 }
 
 .boton-submit:hover {
-    background-color: #E24622; /* Naranja Pantone */
+    background-color: #E24622; 
 }
 
 .boton-submit:active {
-    background-color: #B91116; /* Rojo Pantone */
+    background-color: #B91116;
 }
 
 /* Tabla de eventos */
 .tabla-eventos {
     width: 100%;
-    border-collapse: separate; /* Permite separar los bordes */
-    border-spacing: 0 10px; /* Añade espacio vertical entre filas */
+    border-collapse: separate;
+    border-spacing: 0 10px;
     margin-top: 20px;
 }
 
 .tabla-eventos thead th {
-    background-color: #F39200; /* Amarillo Pantone */
+    background-color: #F39200;
     color: #fff;
     font-size: 16px;
     text-transform: uppercase;
@@ -155,13 +155,13 @@
 }
 
   .layer:nth-child(1) {
-    background-image: url('../resources/crearEvento_resources/FondoParallax.png'); /* Cambia a tu imagen */
+    background-image: url('../resources/crearEvento_resources/FondoParallax.png');
   }
   
   .layer:nth-child(2) {
-    background-image: url('../resources/crearEvento_resources/FondoParallax\(1\).png'); /* Cambia a tu imagen */
+    background-image: url('../resources/crearEvento_resources/FondoParallax\(1\).png');
   }
   
   .layer:nth-child(3) {
-    background-image: url('../resources/crearEvento_resources/FondoParallax\(2\).png'); /* Cambia a tu imagen */
+    background-image: url('../resources/crearEvento_resources/FondoParallax\(2\).png');
   }
