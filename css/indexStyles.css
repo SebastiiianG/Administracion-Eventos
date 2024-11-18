@@ -1,0 +1,38 @@
+/*Estilos para efecto parallax*/
+body{
+  background-color: darkred;
+}
+.parallax {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1; /* Mantén esto detrás del contenido */
+}
+
+  
+  /* Estilos para las capas del parallax */
+  .layer {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    top: -5;
+    left: -5;
+    background-size: cover;
+    background-position: center;
+    z-index: 1; /* Todas las capas tienen menor prioridad */
+}
+
+  .layer:nth-child(1) {
+    background-image: url('../resources/index_resources/FondoParallax.png'); /* Cambia a tu imagen */
+  }
+  
+  .layer:nth-child(2) {
+    background-image: url('../resources/index_resources/FondoParallax\(1\).png'); /* Cambia a tu imagen */
+  }
+  
+  .layer:nth-child(3) {
+    background-image: url('../resources/index_resources/FondoParallax\(2\).png'); /* Cambia a tu imagen */
+  }

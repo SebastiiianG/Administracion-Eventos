@@ -9,24 +9,34 @@
     --dark-gray: #575756;
     --gray: #9D9D9C;
 }
-
+#main-content {
+    flex: 1; /* Este elemento toma el espacio restante disponible */
+    background-image: linear-gradient(rgba(255,255,255,0) 30%, var(--darkest-red));
+    min-height: 100vh;
+    position: relative;
+    z-index:1;
+}
 body {
-    margin: 0;
+    display: flex;
     font-family: Arial, sans-serif;
     color: var(--dark-gray);
-    background-color: var(--light-orange);
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0; /* Elimina cualquier margen predeterminado */
 }
 
 /* Banner Principal */
 .banner {
+    position: relative;
     color: white;
     text-align: center;
     padding: 100px 20px;
-    background-image:url("../resources/banner_header.jpg");
+    background-image: url('../resources/banner_header.jpg');
+    background-position: center;
     background-size: cover;
-    background-position: 0px -500px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    overflow: visible;
 }
 
 .banner h1 {
@@ -144,6 +154,7 @@ body {
 .user-menu {
     position: relative;
     display: inline-block;
+    z-index: inherit;
 }
 
 .user-menu img {
@@ -159,12 +170,16 @@ body {
     right: 0;
     height: 100%;
     width: 250px;
-    background-color: #333; /* Fondo más oscuro */
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo más oscuro */
+    backdrop-filter: blur(15px);
     box-shadow: -2px 0px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     padding: 20px;
     transition: transform 0.3s ease;
     transform: translateX(100%); /* Inicialmente oculto fuera de la pantalla */
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .user-menu-content.open {
@@ -177,10 +192,12 @@ body {
     padding: 10px 0;
     text-decoration: none;
     display: block;
+    text-align: center;
 }
 
 .user-menu-content a:hover {
-    background-color: #555555; /* Fondo más oscuro al pasar el ratón */
+    background-image: linear-gradient(to right,rgba(0,0,0,0.3),rgba(255,255,255,0.3));
+    border-radius: 20px;
 }
 
 

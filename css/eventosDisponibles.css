@@ -1,12 +1,26 @@
+:root {
+    --normal-red: #B91116;
+    --dim-orange: #E24622;
+    --darkest-red: #511013;
+    --dark-red: #841816;
+    --light-red: #F8B688;
+    --normal-orange: #E8641C;
+    --yellow: #F39200;
+    --dark-gray: #575756;
+    --gray: #9D9D9C;
+}
+
 /* Contenedor para el filtro de fechas */
 .filter-container {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background-color: #f1f1f1;
-    border-radius: 8px;
+    background-image: linear-gradient(var(--dark-red),rgba(0,0,0,0));
+    color: white;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 100;
 }
 
 .filter-container form {
@@ -16,7 +30,8 @@
 
 .filter-container label {
     font-weight: bold;
-    color: #333;
+    color: white;
+    padding-top: 10px;
 }
 
 .filter-container input,
@@ -28,7 +43,7 @@
 }
 
 .filter-container button {
-    background-color: #007bff;
+    background-color: darkred;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -36,7 +51,7 @@
 }
 
 .filter-container button:hover {
-    background-color: #0056b3;
+    background-color: red;
 }
 
 /* Contenedor principal de eventos */
@@ -44,9 +59,12 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(255,255,255,0.2));
+    backdrop-filter: blur(2px);
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 100;
 }
 
 .eventos-disponibles h2 {
@@ -94,6 +112,8 @@
 /* Contenedor de detalles del evento */
 .evento-details {
     flex: 1;
+    justify-content: center;
+    text-align: center;
 }
 
 .evento-details p {
@@ -112,7 +132,24 @@
     color: #dc3545;
     margin-top: 10px;
 }
-
+.cap{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.tarjetita{
+    display: flex;
+    flex: 1 1 25px;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 25px;
+    margin-left: 10px;
+    justify-content: center;
+    border-radius: 30%;
+}
+.tarjetita strong{
+    margin-bottom: 5px;
+}
 
 /* Estilos generales para los botones */
 .evento-button {
@@ -127,23 +164,58 @@
 
 /* Botón de Confirmar asistencia */
 .evento-button.confirmar {
-    background-color: #28a745; /* Verde */
+    background-color: var(--normal-orange); /* Verde */
     color: #fff;
 }
 
 .evento-button.confirmar:hover {
-    background-color: #218838;
-    box-shadow: 0px 4px 8px rgba(40, 167, 69, 0.4);
+    background-color: var(--yellow);
+    box-shadow: 0px 4px 8px rgba(167, 144, 40, 0.4);
 }
 
 /* Botón de Desconfirmar asistencia */
 .evento-button.desconfirmar {
-    background-color: #dc3545; /* Rojo */
+    background-color: var(--dark-red); /* Rojo */
     color: #fff;
 }
 
 .evento-button.desconfirmar:hover {
-    background-color: #c82333;
+    background-color: var(--normal-red);
     box-shadow: 0px 4px 8px rgba(220, 53, 69, 0.4);
 }
 
+/*Estilos para efecto parallax*/
+.parallax {
+    position: absolute;
+    width: 100vw;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: visible;
+    z-index: -1; /* Mantén esto detrás del contenido */
+}
+
+  
+  /* Estilos para las capas del parallax */
+  .layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1; /* Todas las capas tienen menor prioridad */
+}
+
+  .layer:nth-child(1) {
+    background-image: url('../resources/MisEventos_resources/FondoParallax.png'); /* Cambia a tu imagen */
+  }
+  
+  .layer:nth-child(2) {
+    background-image: url('../resources/MisEventos_resources/FondoParallax\(1\).png'); /* Cambia a tu imagen */
+  }
+  
+  .layer:nth-child(3) {
+    background-image: url('../resources/MisEventos_resources/FondoParallax\(2\).png'); /* Cambia a tu imagen */
+  }

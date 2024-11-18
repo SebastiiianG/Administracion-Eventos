@@ -1,0 +1,86 @@
+/* Configuración del body para flexbox */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Altura mínima igual al 100% de la ventana */
+    margin: 0; /* Elimina márgenes predeterminados */
+    background-color: white;
+}
+
+/* Asegura que el contenido principal ocupe el espacio disponible */
+.content-container {
+    position: relative;
+    z-index: 100;
+    flex: 1; /* Hace que este contenedor crezca para llenar el espacio restante */
+    background-color: #0000003d; /* Fondo pastel melocotón */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin: 20px auto;
+    max-width: 800px;
+    font-family: 'Arial', sans-serif;
+    color: #511013; /* Texto en burdeos oscuro */
+    font-size: 16px;
+    line-height: 1.6;
+    align-content: center;
+}
+
+/* Estilo para la lista de contactos */
+.contact-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-item {
+    margin: 15px;
+    padding: 10px;
+    background-color: #f8f8f8; /* Fondo gris claro */
+    border-left: 5px solid #e8421c; /* Barra decorativa naranja */
+    border-radius: 5px;
+    font-weight: bold;
+    color: #891116; /* Texto en rojo oscuro */
+    transition: background-color 0.3s ease-in-out, border-left-color 0.3s ease-in-out;
+}
+
+.contact-item:hover {
+    background-color: #f3b200; /* Fondo cambia a mostaza */
+    border-left-color: #511013; /* Cambia la barra decorativa */
+    color: #000000; /* Texto cambia a melocotón claro */
+}
+/*Estilos para efecto parallax*/
+.parallax {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1; /* Mantén esto detrás del contenido */
+}
+
+  
+  /* Estilos para las capas del parallax */
+  .layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1; /* Todas las capas tienen menor prioridad */
+}
+
+  .layer:nth-child(1) {
+    background-image: url('../resources/contacto_resources/Garzas.png'); /* Cambia a tu imagen */
+  }
+  
+  .layer:nth-child(2) {
+    background-image: url('../resources/contacto_resources/Puntitos.png'); /* Cambia a tu imagen */
+  }
+  
+  .layer:nth-child(3) {
+    background-image: url('../resources/contacto_resources/Flechitas.png'); /* Cambia a tu imagen */
+  }

@@ -11,6 +11,7 @@ session_start();
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/headerStyles.css">
     <link rel="stylesheet" href="../css/footerStyles.css">
+    <link rel="stylesheet" href="../css/indexStyles.css">
 </head>
 <body>
     <!--Script para desplegar el menú lateral-->
@@ -65,7 +66,7 @@ session_start();
 
     <!-- Banner Principal -->
     <section class="banner">
-        <h1>Gestor de eventos de la UAEH</h1>
+        <h1 styles>Gestor de eventos de la UAEH</h1>
         <p>
             El <strong>orden</strong> en la gestión, el <strong>amor</strong> en la participación, y el <strong>progreso</strong> en cada experiencia.
         </p>

@@ -41,14 +41,18 @@
  */
  /* Pie de Página */
  footer {
+    position: relative;
     background-color: var(--darkest-red);
     color: white;
     padding: 20px;
     text-align: center;
+    z-index: 100;
+    transition: all ease-in-out;
+    margin-top: auto;
 }
 
 footer a {
     color: white;
-    margin: 0 10px;
+    margin-top: auto;
     text-decoration: none;
 }

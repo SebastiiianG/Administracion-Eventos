@@ -1,16 +1,17 @@
 <?php
-function connection(){
+function connection(): bool|mysqli{
     date_default_timezone_set("America/Mexico_City");
-    $host = "localhost";
-    $user = "root";
-    $pass = "";
-    $bd = "eventos";
-    $connect = mysqli_connect($host, $user, $pass);
-
-    mysqli_select_db($connect, $bd);
-    //$conexion=new mysqli("localhost", "root", "", "eventos"); //Usuario, contraseña y nombre de la bd
-    //$conexion->set_charset("utf-8"); //Para que el proyecto reconozca caractéres especiales
-    return $connect;
+$host = "127.0.0.1";
+$user = "root";
+$pass = "Edwin321";
+$bd = "eventos";
+$connect = mysqli_connect($host, $user, $pass);
+if (!$connect) {
+    die("Error de conexión: " . mysqli_connect_error());
 }
-
+if (!mysqli_select_db($connect, $bd)) {
+    die("No se pudo seleccionar la base de datos: " . mysqli_error($connect));
+}
+return $connect;
+}
 ?>
