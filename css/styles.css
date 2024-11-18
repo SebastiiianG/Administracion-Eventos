@@ -177,6 +177,9 @@ body {
     padding: 20px;
     transition: transform 0.3s ease;
     transform: translateX(100%); /* Inicialmente oculto fuera de la pantalla */
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .user-menu-content.open {
