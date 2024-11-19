@@ -120,6 +120,7 @@ if ($id) {
 }
 
 ob_end_clean(); // Limpia el buffer de salida antes de generar el PDF
-$nombreArchivo = 'ListaInvitados_' . (isset($datoNombre->nombre_evento) ? mb_convert_encoding($datoNombre->nombre_evento, 'ISO-8859-1', 'UTF-8') : 'Evento') . '.pdf';
+$nombreArchivo = 'ListaInvitados_' . (isset($datoNombre->nombre_evento) ? preg_replace('/[^A-Za-z0-9_-]/', '', mb_convert_encoding($datoNombre->nombre_evento, 'ISO-8859-1', 'UTF-8')) : 'Evento') . '.pdf';
 $pdf->Output($nombreArchivo, 'I');
+
 ?>
