@@ -10,32 +10,15 @@
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-    <header>
-        <div class="logo">Universidad Autónoma del Estado de Hidalgo</div>
-        <nav>
-            <ul>
-                <li><a href="index.php" class="nav-link">Inicio</a></li>
-                <li><a href="eventosDisponibles.php" class="nav-link">Buscar eventos</a></li>
-                <li><a href="about.php" class="nav-link">Sobre Nosotros</a></li>
-                <li><a href="contacto.php" class="nav-link">Contacto</a></li>
-            </ul>
-            <scrip src ="../js/linkActivo.js"></script>
-        </nav>
-        <div class="auth-buttons">
-            <a href="login.php" class="nav-li">Iniciar Sesión</a>
-        </div>
-    </header>
-
     <!-- Formulario de Inicio de Sesión -->
-    <div class="login-wrapper">
-    <!-- Efecto Parallax -->
     <div class="parallax">
         <div class="layer" data-depth="0.2"></div>
         <div class="layer" data-depth="0.5"></div>
         <div class="layer" data-depth="1"></div>
     </div>
     <script src="../js/parallax.js"></script>
-    <!-- Contenedor de Inicio de Sesión -->
+    <div class="login-wrapper">
+     <a href="" onclick="window.history.back();" class="boton-regresar">Regresar</a>
     <div class="login-container">
         <h2>Iniciar Sesión</h2>
 
