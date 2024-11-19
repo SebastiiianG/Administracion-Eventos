@@ -97,6 +97,9 @@ if ($id) {
                                         JOIN usuario ON asistencia.numero_cuenta = usuario.numero_cuenta 
                                         WHERE asistencia.id_evento = '$id' 
                                         ORDER BY usuario.numero_cuenta ASC");
+    $nameEvento = $con -> query("SELECT evento.nombre_evento FROM evento
+                                        WHERE evento.id_evento = '$id'");
+    $datoNombre = $nameEvento->fetch_object();
 
     $i = 0;
     while ($datos_reporte = $consulta_asistentes->fetch_object()) {
@@ -117,6 +120,6 @@ if ($id) {
 }
 
 ob_end_clean(); // Limpia el buffer de salida antes de generar el PDF
-$nombreArchivo = 'ListaInvitados_' . (isset($evento_info->nombre_evento) ? mb_convert_encoding($evento_info->nombre_evento, 'ISO-8859-1', 'UTF-8') : 'Evento') . '.pdf';
+$nombreArchivo = 'ListaInvitados_' . (isset($datoNombre->nombre_evento) ? mb_convert_encoding($datoNombre->nombre_evento, 'ISO-8859-1', 'UTF-8') : 'Evento') . '.pdf';
 $pdf->Output($nombreArchivo, 'I');
 ?>
