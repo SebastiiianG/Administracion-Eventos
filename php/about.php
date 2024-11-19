@@ -79,23 +79,46 @@ session_start();
             <p class="description">
                 Universidad Autónoma del Estado de Hidalgo - UAEH
                 <br>
-                Somos un equipo de desarrollo de la Universidad Autónoma del Estado de Hidalgo, cursando el 7º grado, Grupo
+                Somos un equipo de desarrollo de la Universidad Autónoma del Estado de Hidalgo, cursando el 7º grado,
+                Grupo
                 1.
             </p>
             <h3>Equipo de Desarrollo</h3>
             <div class="team">
                 <div class="team-member">
-                    <img src="../resources/aboutUs_resources/pfpEdwin.jpeg" alt="Campos Dragusin Edwin">
-                    <p>Campos Dragusin Edwin</p>
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                        <img src="../resources/aboutUs_resources/pfpEdwin.jpeg" alt="Campos Dragusin Edwin">
+                            <p>Campos Dragusin Edwin</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Se centró en el desarrollo front-end de este proyecto mediante CSS y JS</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="team-member">
-                    <img src="../resources/aboutUs_resources/pfpEdwin.jpeg" alt="Campos Dragusin Edwin">
-                    <p>García García Ulises Sebastian</p>
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                        <img src="../resources/aboutUs_resources/pfpSebas.jpeg" alt="Campos Dragusin Edwin">
+                            <p>García García Ulises Sebastian</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Se centró en el desarrollo back-end de este proyecto mediante PHP y HTML</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="team-member">
-                    <img src="../resources/aboutUs_resources/pfpEdwin.jpeg" alt="Campos Dragusin Edwin">
-                    <p>García Sandoval Pedro Daniel</p>
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                        <img src="../resources/aboutUs_resources/pfpEdwin.jpeg" alt="Campos Dragusin Edwin">
+                            <p>García Sandoval Pedro Daniel</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Se centró en la recopilación de la información y apoyó a ambos ends en el desarrollo general</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>

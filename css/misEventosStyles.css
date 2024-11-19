@@ -12,7 +12,8 @@ body {
     max-width: 960px;
     margin: 50px auto;
     padding: 20px;
-    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(255,255,255,0.2));
+    background-color: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(2px);
     border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
@@ -35,7 +36,7 @@ body {
 
 /* Estilo para los contenedores de eventos */
 .evento-item {
-    background-color: #FFF;
+    background-color: rgba(255, 255, 255, 00.6);
     border: 2px solid #F39200; /* Amarillo Pantone */
     border-radius: 8px;
     padding: 15px;

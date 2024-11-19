@@ -102,9 +102,9 @@
                                             <input type="hidden" name="origen" value="misEventos"> <!-- Campo oculto para el origen -->
             
                                             <?php if ($asistido): ?>
-                                                <button type="submit" name="accion" value="desconfirmar">Desconfirmar asistencia</button>
+                                                <button type="submit" name="accion" value="desconfirmar" class="boton-accion">Desconfirmar asistencia</button>
                                             <?php else: ?>
-                                                <button type="submit" name="accion" value="confirmar">Confirmar asistencia</button>
+                                                <button type="submit" name="accion" value="confirmar" class="boton-accion">Confirmar asistencia</button>
                                             <?php endif; ?>
                                         </form>
                                     </div>
