@@ -150,7 +150,7 @@ include "controlador/detallesEventoControlador.php";
             <a href="FAQ.php">FAQ</a>
         </p>
         <p>
-            <a href="#">Instituto de Ciencias Básicas e Ingeniería</a> |
+             <a href="icbi.php">Instituto de Ciencias Básicas e Ingeniería</a> |
             <a href="tel:+527713038278">Teléfono</a> |
             <a href="mailto:ca465354@uaeh.edu.mx">Correo Electrónico</a>
         </p>

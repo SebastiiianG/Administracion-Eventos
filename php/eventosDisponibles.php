@@ -115,9 +115,9 @@ $fecha_actual = date('Y-m-d'); // Obtiene la fecha actual en formato 'YYYY-MM-DD
                     <?php if (mysqli_num_rows($resultado) > 0): ?>
                         <?php while ($evento = mysqli_fetch_assoc($resultado)): ?>
                             <div class="evento-item">
-                                <img src="imagenesEvento/<?php echo $evento['img']; ?>" alt="Imagen del evento">
+                                <img src="imagenesEvento/<?php echo $evento['img']; ?>" alt="Imagen del evento"style = "display: none;">
         
-                                <div class="evento-details">
+                                <div class="evento-details hover-container-style" style="--after-background-image: url('../php/imagenesEvento/<?php echo $evento['img']; ?>');">
                                     <?php
                                     if (isset($_GET['evento_id']) && $_GET['evento_id'] == $evento['id_evento'] && isset($_SESSION['mensaje'])) {
                                         echo $_SESSION['mensaje'];
@@ -192,7 +192,7 @@ $fecha_actual = date('Y-m-d'); // Obtiene la fecha actual en formato 'YYYY-MM-DD
     <footer>
         <p>&copy; 2024 Gestor de Eventos. Todos los derechos reservados.</p>
         <p><a href="FAQ.php">FAQ</a></p>
-        <p><a href="#">Instituto de Ciencias Básicas e Ingeniería</a> | <a href="tel:+527713038278">Teléfono</a> | <a
+        <p> <a href="icbi.php">Instituto de Ciencias Básicas e Ingeniería</a> | <a href="tel:+527713038278">Teléfono</a> | <a
                 href="mailto:ca465354@uaeh.edu.mx">Correo Electrónico</a></p>
     </footer>
 </body>

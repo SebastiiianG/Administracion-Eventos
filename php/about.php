@@ -85,7 +85,7 @@ session_start();
             </p>
             <h3>Equipo de Desarrollo</h3>
             <div class="team">
-                <div class="team-member">
+                <div class="card-3d">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                         <img src="../resources/aboutUs_resources/pfpEdwin.jpeg" alt="Campos Dragusin Edwin">
@@ -96,7 +96,7 @@ session_start();
                         </div>
                     </div>
                 </div>
-                <div class="team-member">
+                <div class="card-3d">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                         <img src="../resources/aboutUs_resources/pfpSebas.jpeg" alt="Campos Dragusin Edwin">
@@ -107,7 +107,7 @@ session_start();
                         </div>
                     </div>
                 </div>
-                <div class="team-member">
+                <div class="card-3d">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                         <img src="../resources/aboutUs_resources/pfpEdwin.jpeg" alt="Campos Dragusin Edwin">
@@ -129,7 +129,7 @@ session_start();
             <a href="FAQ.php">FAQ</a>
         </p>
         <p>
-            <a href="#">Instituto de Ciencias Básicas e Ingeniería</a> |
+             <a href="icbi.php">Instituto de Ciencias Básicas e Ingeniería</a> |
             <a href="tel:+527713038278">Teléfono</a> |
             <a href="mailto:ca465354@uaeh.edu.mx">Correo Electrónico</a>
         </p>
