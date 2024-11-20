@@ -2,9 +2,9 @@
 function connection(): mysqli {
     date_default_timezone_set("America/Mexico_City");
 
-    $host = "127.0.0.1";
+    $host = "localhost";
     $user = "root";
-    $pass = "Edwin321";
+    $pass = "";
     $bd = "eventos";
 
     // Establecer la conexión

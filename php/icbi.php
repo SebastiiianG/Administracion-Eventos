@@ -109,7 +109,7 @@
                         </p>
                         <div class="map-container">
                             <!-- Mapa actualizado con la dirección real del ICBI -->
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.7854037252067!2d-98.93855768468398!3d20.091482126401962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1a5e999fcc3d3%3A0x9e6726b7d7dceec1!2sInstituto%20de%20Ciencias%20B%C3%A1sicas%20e%20Ingenier%C3%ADa!5e0!3m2!1ses-419!2smx!4v1698540000000!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3746.933986888017!2d-98.71691368929348!3d20.09504618125288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1a7727cefedd3%3A0x19871fad390b95f0!2sUAEH!5e0!3m2!1ses!2smx!4v1732073785259!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </section>
             
