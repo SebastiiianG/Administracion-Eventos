@@ -1,185 +1,115 @@
 /* Contenedor principal */
 .about-section {
-    position: relative; /* Necesario para aplicar z-index */
-    z-index: 10; /* Coloca esta sección por encima del parallax */
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 40px;
-    border-radius: 15px;
-    margin: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    color: white;
+  position: relative;
+  /* Necesario para aplicar z-index */
+  z-index: 10;
+  /* Coloca esta sección por encima del parallax */
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 40px;
+  border-radius: 15px;
+  margin: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: white;
 }
 
 .about-section h2 {
-    color: var(--darkest-red);
-    font-size: 32px;
-    margin-bottom: 20px;
-    position: relative;
+  color: var(--darkest-red);
+  font-size: 32px;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 .about-section h2::after {
-    content: '';
-    display: block;
-    width: 80%;
-    height: 3px;
-    background-color: var(--darkest-red);
-    margin: 10px auto 0;
+  content: '';
+  display: block;
+  width: 80%;
+  height: 3px;
+  background-color: var(--darkest-red);
+  margin: 10px auto 0;
 }
+
 .about-section h3 {
-    color: var(--normal-red);
-    font-size: 32px;
-    margin-bottom: 20px;
-    position: relative;
+  color: var(--normal-red);
+  font-size: 32px;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 .about-section h3::after {
-    content: '';
-    display: block;
-    width: 80%;
-    height: 3px;
-    background-color: var(--normal-red);
-    margin: 10px auto 0;
-    border-radius: 50%;
+  content: '';
+  display: block;
+  width: 80%;
+  height: 3px;
+  background-color: var(--normal-red);
+  margin: 10px auto 0;
+  border-radius: 50%;
 }
 
 .about-section .description {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    color: black;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: black;
 }
 
 /* Equipo de desarrollo */
 .team {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    flex-wrap: wrap; /* Ajusta en varias filas si la pantalla es pequeña */
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  /* Ajusta en varias filas si la pantalla es pequeña */
 }
-
-.team-member {
-    perspective: 1000px;
-    width: 200px;
-    height: 300px; /* Altura fija */
-    margin: 20px;
-  }
-  
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%; /* Ocupa toda la altura */
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
-  .team-member:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%; /* Ambas caras con la misma altura */
-    backface-visibility: hidden;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  
-  .flip-card-front {
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: var(--darkest-red);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-  }
-  
-  .flip-card-front img {
-    width: 100%; /* Tamaño ajustado */
-    height: auto;
-    border-radius: 50%;
-    border: 4px solid var(--yellow);
-    transition: filter 0.5s ease-in-out;
-  }
-  
-  .flip-card-front p {
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .team-member:hover .flip-card-front img {
-    filter: none;
-  }
-  
-  .flip-card-back {
-    background-color: #F39200;
-    color: #ffffff;
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  .flip-card-back p {
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-  }
-  
 /*Estilos para efecto parallax*/
 .parallax {
-    position: absolute;
-    width: 130vw;
-    height: 130vh;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: 1; /* Mantén esto detrás del contenido */
+  position: absolute;
+  width: 130vw;
+  height: 130vh;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 1;
+  /* Mantén esto detrás del contenido */
 }
 
-  
-  /* Estilos para las capas del parallax */
-  .layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-size: cover;
-    z-index: 1; /* Todas las capas tienen menor prioridad */
+
+/* Estilos para las capas del parallax */
+.layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  z-index: 1;
+  /* Todas las capas tienen menor prioridad */
 }
 
-  .layer:nth-child(1) {
-    background-image: url('../resources/aboutUs_resources/Fondo.png');
-  }
-  
-  .layer:nth-child(2) {
-    background-image: url('../resources/aboutUs_resources/Capa1.png');
-  }
-  
-  .layer:nth-child(3) {
-    background-image: url('../resources/aboutUs_resources/Capa2.png');
-  }
+.layer:nth-child(1) {
+  background-image: url('../resources/aboutUs_resources/Fondo.png');
+}
 
-  /* Asegúrate de que todo el cuerpo de la página use flexbox */
+.layer:nth-child(2) {
+  background-image: url('../resources/aboutUs_resources/Capa1.png');
+}
+
+.layer:nth-child(3) {
+  background-image: url('../resources/aboutUs_resources/Capa2.png');
+}
+
+/* Asegúrate de que todo el cuerpo de la página use flexbox */
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0; /* Elimina cualquier margen predeterminado */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  /* Elimina cualquier margen predeterminado */
 }
 
 /* Contenedor principal que se expande */
 #main-content {
-    flex: 1; /* Este elemento toma el espacio restante disponible */
-    padding: 20px;
+  flex: 1;
+  /* Este elemento toma el espacio restante disponible */
+  padding: 20px;
 }
-

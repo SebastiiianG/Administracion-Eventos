@@ -13,18 +13,16 @@ $modif_query = mysqli_query($con, $sql);
 $auditorio_sql = "SELECT id_auditorio, nombre_auditorio FROM auditorio";
 $auditorio_query = mysqli_query($con, $auditorio_sql);
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar evento</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/headerStyles.css">
     <link rel="stylesheet" href="../css/footerStyles.css">
+    <!-- Enlaza el nuevo archivo CSS con las clases modificadas -->
     <link rel="stylesheet" href="../css/modificarEvento.css">
-
 </head>
 <body>
     <!--Script para desplegar el menú lateral-->
@@ -57,7 +55,7 @@ $auditorio_query = mysqli_query($con, $auditorio_sql);
                 <li><a href="about.php" class="nav-link">Sobre Nosotros</a></li>
                 <li><a href="contacto.php" class="nav-link">Contacto</a></li>
             </ul>
-            <script src ="../js/linkActivo.js"></script>
+            <script src="../js/linkActivo.js"></script>
         </nav>
         <div class="auth-buttons">
             <?php if (isset($_SESSION['numero_cuenta'])): ?>
@@ -76,56 +74,62 @@ $auditorio_query = mysqli_query($con, $auditorio_sql);
             <?php endif; ?>
         </div>
     </header>
-
-    <!--<button type="button" onclick="window.location.href='evento.php'"></button>-->
-    <div>
-        <a href="evento.php" class="back-link">Regresar</a>
+    <div class="parallax">
+        <div class="layer" data-depth="0.2"></div>
+        <div class="layer" data-depth="0.5"></div>
+        <div class="layer" data-depth="1"></div>
     </div>
-        
-    <form method="POST" enctype="multipart/form-data" class="form-container">
-        <h5 class="form-header">Modificar evento</h5>
-        <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
-        <?php
-        include "controlador/updateEvento.php";
-        while ($datos = $modif_query->fetch_object()) { ?>
-
-            <label for="nombre_evento" class="form-label">Nombre del Evento:</label>
-            <input type="text" name="nombre_evento" value="<?= $datos->nombre_evento ?>" required class="form-input">
-            
-            <label for="descripcion" class="form-label">Descripción:</label>
-            <input type="text" name="descripcion" value="<?= $datos->descripcion ?>" required class="form-input">
-            
-            <label for="fecha_evento" class="form-label">Fecha del Evento:</label>
-            <input type="date" name="fecha_evento" value="<?= $datos->fecha_evento ?>" required class="form-input">
-            
-            <label for="horario_evento" class="form-label">Horario del Evento:</label>
-            <input type="time" name="horario_evento" value="<?= $datos->horario_evento ?>" required class="form-input">
-            
-            <label for="duracion_evento" class="form-label">Duración del Evento (en minutos):</label>
-            <input type="number" name="duracion_evento" value="<?= $datos->duracion_evento ?>" required min="1" step="1" class="form-input">
-            
-            <label for="img" class="form-label">Imagen del Evento:</label>
-            
-            <?php if (!empty($datos->img)) { ?>
-                <img src="imagenesEvento/<?= $datos->img ?>" alt="Imagen actual del Evento" class="event-image">
-                <span class="image-instruction">Sube una nueva imagen si deseas cambiarla:</span>
-            <?php } ?>
-            
-            <input type="file" name="img" class="form-file-input">
-            
-            <label for="id_auditorio" class="form-label">Auditorio:</label>
-            <select name="id_auditorio" required class="form-select">
+    <script src="../js/parallax.js"></script>
+    <div id="main-content">
+        <a href="evento.php" class="boton-regresar">Regresar</a>
+        <div id="mod-formulario">
+            <form method="POST" enctype="multipart/form-data" class="mod-form-container">
+                <h5 class="mod-titulo-formulario">Modificar evento</h5>
+                <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
                 <?php
-                while ($auditorio = $auditorio_query->fetch_assoc()) {
-                    $selected = ($auditorio['id_auditorio'] == $datos->id_auditorio) ? 'selected' : '';
-                    echo "<option value='" . $auditorio['id_auditorio'] . "' $selected>" . $auditorio['nombre_auditorio'] . "</option>";
-                }
-                ?>
-            </select>
-        <?php } ?>
-        
-        <button type="submit" name="btnRegistrar" value="ok" class="submit-button">Modificar Evento</button>
-    </form>
+                include "controlador/updateEvento.php";
+                while ($datos = $modif_query->fetch_object()) { ?>
+                    <label for="nombre_evento" class="mod-label-input">Nombre del Evento:</label>
+                    <input type="text" name="nombre_evento" value="<?= $datos->nombre_evento ?>" required class="mod-input-text">
+
+                    <label for="descripcion" class="mod-label-input">Descripción:</label>
+                    <input type="text" name="descripcion" value="<?= $datos->descripcion ?>" required class="mod-input-text">
+
+                    <label for="fecha_evento" class="mod-label-input">Fecha del Evento:</label>
+                    <input type="date" name="fecha_evento" value="<?= $datos->fecha_evento ?>" required class="mod-input-date">
+
+                    <label for="horario_evento" class="mod-label-input">Horario del Evento:</label>
+                    <input type="time" name="horario_evento" value="<?= $datos->horario_evento ?>" required class="mod-input-time">
+
+                    <label for="duracion_evento" class="mod-label-input">Duración del Evento (en minutos):</label>
+                    <input type="number" name="duracion_evento" value="<?= $datos->duracion_evento ?>" required min="1" step="1" class="mod-input-number">
+
+                    <label for="img" class="mod-label-input">Imagen del Evento:</label>
+
+                    <?php if (!empty($datos->img)) { ?>
+                        <img src="imagenesEvento/<?= $datos->img ?>" alt="Imagen actual del Evento" class="mod-event-image">
+                        <span class="mod-image-instruction">Sube una nueva imagen si deseas cambiarla:</span>
+                    <?php } ?>
+
+                    <input type="file" name="img" class="mod-input-file">
+
+                    <label for="id_auditorio" class="mod-label-input">Auditorio:</label>
+                    <select name="id_auditorio" required class="mod-select-auditorio">
+                        <?php
+                        mysqli_data_seek($auditorio_query, 0); // Reinicia el puntero del resultado
+                        while ($auditorio = $auditorio_query->fetch_assoc()) {
+                            $selected = ($auditorio['id_auditorio'] == $datos->id_auditorio) ? 'selected' : '';
+                            echo "<option value='" . $auditorio['id_auditorio'] . "' $selected>" . $auditorio['nombre_auditorio'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                <?php } ?>
+
+                <button type="submit" name="btnRegistrar" value="ok" class="mod-boton-submit">Modificar Evento</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Pie de Página -->
     <footer>
         <p>&copy; 2024 Gestor de Eventos. Todos los derechos reservados.</p>
@@ -133,10 +137,10 @@ $auditorio_query = mysqli_query($con, $auditorio_sql);
             <a href="FAQ.php">FAQ</a>
         </p>
         <p>
-            <a href="#">Instituto de Ciencias Básicas e Ingeniería</a> |
+            <a href="icbi.php">Instituto de Ciencias Básicas e Ingeniería</a> |
             <a href="tel:+527713038278">Teléfono</a> |
             <a href="mailto:ca465354@uaeh.edu.mx">Correo Electrónico</a>
-        </p>    
-    </footer>   
+        </p>
+    </footer>
 </body>
 </html>

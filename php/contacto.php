@@ -76,9 +76,9 @@ session_start();
    <div id="main-content">
         <div class="content-container">
                <ul class="contact-list">
-                   <li class="contact-item"><strong>Pedro Daniel García Sandoval:</strong> ga454062@uaeh.edu.mx</li>
-                   <li class="contact-item"><strong>Edwin Campos Dragusin:</strong> ca465354@uaeh.edu.mx</li>
-                   <li class="contact-item"><strong>Ulises Sebastian García García:</strong> ga401420@uaeh.edu.mx</li>
+                   <li class="hover-container-style"><strong>Pedro Daniel García Sandoval:</strong> ga454062@uaeh.edu.mx</li>
+                   <li class="hover-container-style"><strong>Edwin Campos Dragusin:</strong> ca465354@uaeh.edu.mx</li>
+                   <li class="hover-container-style"><strong>Ulises Sebastian García García:</strong> ga401420@uaeh.edu.mx</li>
                </ul>
            </div>
    </div>
@@ -89,7 +89,7 @@ session_start();
             <a href="FAQ.php">FAQ</a>
         </p>
         <p>
-            <a href="#">Instituto de Ciencias Básicas e Ingeniería</a> |
+             <a href="icbi.php">Instituto de Ciencias Básicas e Ingeniería</a> |
             <a href="tel:+527713038278">Teléfono</a> |
             <a href="mailto:ca465354@uaeh.edu.mx">Correo Electrónico</a>
         </p>
